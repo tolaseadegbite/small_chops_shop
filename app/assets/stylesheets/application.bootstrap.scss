@@ -58,3 +58,15 @@ h1,h2,h3,h4,h5,h6 {
 //     background-position: center;
 //     background-size: 100%;
 // }
+
+// media queries
+
+@include media-breakpoint-down(xl) {
+    .img-col {
+        display: none;
+    }
+    
+    .form-col {
+      width: 100%;
+    }
+}
