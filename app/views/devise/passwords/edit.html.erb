@@ -1,0 +1,42 @@
+<div class="row vh-100 overflow-hidden">
+  <div class="col-md-6">
+    <h4 class="mt-3 ms-5"><%= link_to "JANE'S KITCHEN", root_path, class: "text-dark text-decoration-none" %></h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="w-75">
+        <div class="my-3 text-center">
+          <h2>Password reset</h2>
+          <p>Change your password</p>
+        </div>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="mb-3">
+            <div class="mb-1">
+              <strong><%= f.label :password %></strong>
+            </div>
+            <%= f.password_field :password, placeholder: "Enter your password (6 characters minimum)", autocomplete: "email", class: "form-control form-control-lg rounded-0" %>
+          </div>
+          
+          <div class="mb-3">
+            <div class="mb-1">
+              <strong><%= f.label :password_confirmation %></strong>
+            </div>
+            <%= f.password_field :password_confirmation, placeholder: "Confirm your password", autocomplete: "email", class: "form-control form-control-lg rounded-0" %>
+          </div>
+
+          <div class="actions mb-2">
+            <%= f.submit "Change my password" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 signup-img vh-100">
+    <%= image_tag('login-3.jpg', class: "img-fluid") %>
+  </div>
+</div>

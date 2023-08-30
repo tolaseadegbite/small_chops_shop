@@ -4,6 +4,20 @@
 // import fonts from google
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Quicksand&display=swap');
 
+// reset
+
+a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 200ms;
+  
+    &:hover,
+    &:focus,
+    &:active {
+    //   color: #000dfd;
+      text-decoration: underline;
+    }
+}
 
 body {
     font-family: 'Quicksand', sans-serif;
@@ -16,3 +30,31 @@ p {
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Nanum Myeongjo', serif;
 }
+
+// form
+
+.form-control, .form-select {
+    // border-color: #f8bbff;
+    border-width: 1px;
+}
+
+.form-control:focus, .form-select:valid:focus {
+    box-shadow: none;
+    border: 1px solid #000000;
+}
+
+// .signup-img {
+//     background-image: url('login.jpg');
+//     background-color: #000000;
+//     background-repeat: no-repeat, repeat;
+//     background-position: center;
+//     background-size: 100%;
+// }
+
+// .login-img {
+//     background-image: url('login.jpg');
+//     background-color: #000000;
+//     background-repeat: no-repeat, repeat;
+//     background-position: center;
+//     background-size: 100%;
+// }
