@@ -43,6 +43,24 @@ h1,h2,h3,h4,h5,h6 {
     border: 1px solid #000000;
 }
 
+button {
+    .show-when-enabled {
+        display: initial;
+    }
+    .show-when-disabled {
+        display: none;
+    }
+
+    &[disabled] {
+        .show-when-enabled {
+            display: none;
+        }
+        .show-when-disabled {
+            display: initial;
+        }
+    }
+}
+
 // .signup-img {
 //     background-image: url('login.jpg');
 //     background-color: #000000;

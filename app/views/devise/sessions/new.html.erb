@@ -32,7 +32,10 @@
           <% end %>
 
           <div class="actions my-3">
-            <%= f.submit "Log in", class: "btn btn-dark rounded-0 w-100" %>
+            <%= f.button "Log in", class: "btn btn-dark rounded-0 w-100" do %>
+              <span class="show-when-enabled">Log in</span>
+              <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Logging in...</span>
+            <% end %>
           </div>
         <% end %>
 
