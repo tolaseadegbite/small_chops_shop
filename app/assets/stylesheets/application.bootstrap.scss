@@ -1,2 +1,18 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+// import fonts from google
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Quicksand&display=swap');
+
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Nanum Myeongjo', serif;
+}
