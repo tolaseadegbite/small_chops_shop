@@ -11,15 +11,10 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= current_user.username %>
-      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> | 
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+    <%= render 'layouts/navbar' %>
 
     <%= yield %>
 
+    <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -2,7 +2,10 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 
 // import fonts from google
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Rowdies:wght@400&display=swap');
+
+// import components
+@import 'components/navbar';
 
 // reset
 
@@ -14,8 +17,7 @@ a {
     &:hover,
     &:focus,
     &:active {
-    //   color: #000dfd;
-      text-decoration: underline;
+      color: #38383a;
     }
 }
 
@@ -28,19 +30,21 @@ p {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Rowdies', cursive;
 }
 
 // form
+.mb-3 {
 
-.form-control, .form-select {
-    // border-color: #f8bbff;
-    border-width: 1px;
-}
-
-.form-control:focus, .form-select:valid:focus {
-    box-shadow: none;
-    border: 1px solid #000000;
+    .form-control, .form-select {
+        // border-color: #f8bbff;
+        border-width: 1px;
+    }
+    
+    .form-control:focus, .form-select:valid:focus {
+        box-shadow: none;
+        border: 1px solid #000000;
+    }
 }
 
 button {
@@ -76,6 +80,17 @@ button {
 //     background-position: center;
 //     background-size: 100%;
 // }
+
+// reviews section
+
+.reviews-section {
+    background-image: url('bg.jpg');
+    background-color: #000000;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: 100%;
+    background-attachment: fixed;
+}
 
 // media queries
 
