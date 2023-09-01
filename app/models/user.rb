@@ -30,4 +30,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: { case_sensitive: false, message: "Username must be unique" }
   validates_presence_of :first_name, :surname, :address_line_1
+
+  has_many :products, dependent: :destroy
 end
