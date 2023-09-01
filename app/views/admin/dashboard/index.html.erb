@@ -1,0 +1,43 @@
+<div class="container my-3">
+    <div class="header pt-2">
+        <h1>Dashboard</h1>
+        <p>Overview of your store</p>
+    </div>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-subtitle bg-white d-flex fw-bold justify-content-between">
+                        <p>Total Revenue</p>
+                        <p>₦</p>
+                    </div>
+                    <h5 class="mt-2"><%= number_to_currency(245000, unit: "₦") %></h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-subtitle bg-white d-flex fw-bold justify-content-between">
+                        <p>Sales</p>
+                        <p><i class="fa-regular fa-credit-card"></i></p>
+                    </div>
+                    <h5 class="mt-2"><%= number_to_currency(245000, unit: "₦") %></h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-subtitle bg-white d-flex fw-bold justify-content-between">
+                        <p>Products in stock</p>
+                        <p><i class="fa-solid fa-cubes"></i></i></p>
+                    </div>
+                    <h5 class="mt-2"><%= number_to_currency(245000, unit: "₦") %></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

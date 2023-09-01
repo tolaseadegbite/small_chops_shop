@@ -1,0 +1,50 @@
+<div class="container my-3">
+    <div class="header pt-2 d-flex justify-content-between">
+        <div class="header-info">
+            <h1>Products (<%= Product.count %>)</h1>
+            <p>Manage your products</p>
+        </div>
+        <div class="header-link align-self-center">
+            <%= link_to new_admin_product_path, class: "btn btn-dark rounded-0" do %>
+                <i class="fa-solid fa-plus"></i>
+                Add New
+            <% end %>
+        </div>
+    </div>
+    <hr>
+
+    <div class="mb-3">
+        <input type="text" class="form-control form-control rounded-0 w-25" placeholder="Search products..." aria-label="Search products..." aria-describedby="basic-addon1">
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table border">
+            <thead>
+                <tr class="fw-bold tb-header">
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Featured</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |product| %>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.description %></td>
+                        <td>Small Chops</td>
+                        <td><%= product.unit_price %></td>
+                        <td><%= product.code %></td>
+                        <td>true</td>
+                        <td><%= product.stock %></td>
+                        <td><%= product.created_at %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -13,11 +13,7 @@
   </head>
 
   <body>
-    <% if controller_name.include? "::" %>
       <%= render 'layouts/admin' %>
-    <% else %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
 
 
     <%= yield %>

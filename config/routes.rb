@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    get '/', to: '/admin/dashboard#index'
+  end
+
+  namespace :admin do
+    resources :products
+  end
+  
   devise_for :users
   root 'static_pages#home'
 

@@ -1,0 +1,75 @@
+<%= form_with model: [product], url: admin_products_url  do |f| %>
+    <%= render 'layouts/errors', f: f %>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <%= f.label :name, class: "fw-bold mb-3 mb-3" %>
+            <%= f.text_field :name, class: "form-control rounded-0" %>
+        </div>
+
+        <div class="col-md-6">
+            <%= f.label :description, class: "fw-bold mb-3" %>
+            <%= f.text_area :description, class: "form-control rounded-0", rows: 3 %>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="mb-3">
+                <strong><%= f.label :images, class: "mb-3" %></strong>
+                <%= f.file_field :category, class: "form-control" %>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <%= f.label :code, class: "fw-bold mb-3" %>
+            <%= f.text_field :code, class: "form-control rounded-0" %>
+        </div>
+        <div class="col-md-3 mb-3">
+            <%= f.label :stock, class: "fw-bold mb-3" %>
+            <%= f.text_field :stock, class: "form-control rounded-0" %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <%= f.label :price, class: "fw-bold mb-3" %>
+            <%= f.number_field :unit_price, class: "form-control rounded-0" %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <%= f.label :category, class: "fw-bold mb-3" %>
+            <%= f.text_field :category, class: "form-control rounded-0" %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box border pt-2 d-flex justify-content-between">
+                <%= f.check_box :feature, class: "form-check-input mx-2" %> 
+                <div class="featured-label">
+                    <strong><%= f.label :feature %></strong>
+                    <p><small>
+                        This product will appear anywhere in the homepage.
+                    </small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box border pt-2 d-flex justify-content-between">
+                <%= f.check_box :archive, class: "form-check-input mx-2" %> 
+                <div class="archived-label">
+                    <strong><%= f.label :archive %></strong>
+                    <p><small>
+                        This product will not appear anywhere in the store.
+                    </small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions mb-2">
+        <%= f.button "Log in", class: "btn btn-dark rounded-0" do %>
+            <span class="show-when-enabled">Create product</span>
+            <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Creating product...</span>
+        <% end %>
+    </div>
+<% end %>

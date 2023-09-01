@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light py-3">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand fw-bold" do %>
+      <i class="fa-solid fa-arrow-left-long"></i> 
+      Back to store
+    <% end %>
+    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <%# Offcanvas %>
+
+    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+    <%# Sidebar header %>
+
+      <div class="offcanvas-header text-white border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button 
+            type="button" 
+            class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" 
+            aria-label="Close"
+        ></button>
+      </div>
+
+      <%# Sidebar body %>
+      <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+        <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3 fs-6 fw-bold">
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Dashboard", admin_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Customers", admin_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Banners", admin_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Categories", admin_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Products", admin_products_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+            <%= link_to "Orders", admin_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+        </ul>
+
+        <%# Login/signup %>
+
+        <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">
+            <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-sm btn-secondary" %>
+            <% else %>
+                <%= link_to "Signup", new_user_registration_path, class: "btn btn-secondary btn-sm" %>
+                <%= link_to "Login", new_user_session_path, class: "btn btn-secondary btn-sm" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

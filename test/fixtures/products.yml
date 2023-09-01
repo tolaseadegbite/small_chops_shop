@@ -3,8 +3,10 @@
 # Table name: products
 #
 #  id          :bigint           not null, primary key
+#  archive     :boolean          default(FALSE)
 #  code        :string
 #  description :text
+#  feature     :boolean          default(FALSE)
 #  name        :string
 #  stock       :integer
 #  unit_price  :integer
@@ -14,6 +16,7 @@
 #
 # Indexes
 #
+#  index_products_on_name     (name) UNIQUE
 #  index_products_on_user_id  (user_id)
 #
 # Foreign Keys
