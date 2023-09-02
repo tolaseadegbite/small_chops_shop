@@ -47,14 +47,14 @@
             </div>
 
             <div class="card-body bg-transparent mt-3 p-0">
-              <h5 class="card-title bg-danger my-3 p-1 d-inline-block"><%= link_to product.name, product %></h5>
+              <h5 class="card-title text-white bg-danger my-3 p-1 d-inline-block"><%= link_to product.name, product %></h5>
             </div>
             <p class="price my-2">
               <%= number_to_currency(product.unit_price, unit: "₦") %>
             </p>
           </div>
         </div>
-        <%= render 'home-product-modal', product: product %>
+        <%= render 'products/product-modal', product: product %>
       <% end %>
     </div>
 

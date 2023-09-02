@@ -16,11 +16,12 @@
               <strong><%= number_to_currency("5000", unit: "₦") %></strong>
             </p>
 
-            <div class="product-quantity">
+            <div class="product-quantity mb-3">
               <input type="number" class="form-control d-inline-block w-25 bg-transparent" placeholder="Qty" aria-label="Quantity" aria-describedby="basic-addon1">
             </div>
 
-            <%= link_to "Add to cart", '#', class: "btn btn-warning rounded-0 mt-3" %>
+            <%= link_to "Add to cart", '#', class: "btn btn-warning rounded-0" %>
+            <button type="button" class="btn btn-dark rounded-0" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
