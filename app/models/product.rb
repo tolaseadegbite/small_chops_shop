@@ -28,11 +28,23 @@ class Product < ApplicationRecord
     
     belongs_to :user
 
+
+    validates :user_id, presence: true
+
     validates :name, presence: true, uniqueness: { case_sensitive: false, message: "Product name must be unique" }
     validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validates :unit_price, presence: true, numericality: { greater_than: 0 }
 
     scope :ordered, -> { order(created_at: :desc) }
+
+    has_one_attached :image do |attachable|
+        attachable.variant :display, resize_to_limit: [500, 500]
+    end
+
+    validates :image, presence: true,   content_type: { in: %w[image/jpeg image/png],
+                                      message: "must be a valid image format" },
+                      size:         { less_than: 1.megabytes,
+                                      message:   "should be less than 1MB" }
 
     def Product.new_token
         SecureRandom.urlsafe_base64(4)

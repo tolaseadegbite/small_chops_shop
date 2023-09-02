@@ -1,0 +1,29 @@
+<!-- Modal -->
+<div class="modal fade text-white" id="product-<%= product.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-0">
+      <div class="row text-dark">
+        <div class="col-md-6">
+          <%= image_tag(product.image, class: "img-fluid h-100") if product.image.attached? %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-details p-3">
+            <h3 class=""><%= link_to product.name, product %></h3>
+            <p class="mt-4"><%= simple_format(product.description.truncate(100)) %></p>
+
+            <p class="price my-2">
+              <strong><%= number_to_currency("5000", unit: "₦") %></strong>
+            </p>
+
+            <div class="product-quantity">
+              <input type="number" class="form-control d-inline-block w-25 bg-transparent" placeholder="Qty" aria-label="Quantity" aria-describedby="basic-addon1">
+            </div>
+
+            <%= link_to "Add to cart", '#', class: "btn btn-warning rounded-0 mt-3" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

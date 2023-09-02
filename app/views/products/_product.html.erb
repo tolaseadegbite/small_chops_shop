@@ -1,0 +1,33 @@
+<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+    <div class="product-card border-0 bg-transparent position-relative">
+        <div class="product-img position-relative">
+            <%= link_to product do %>
+                <%= image_tag(product.image, class: "rounded-4 img-fluid") if product.image.attached? %>
+            <% end %>
+            <div class="img-btns position-absolute top-50 start-50 translate-middle">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#product-<%= product.id %>" class="btn btn-sm btn-light rounded-circle">
+                    <i class="fa-solid fa-expand fs-4 p-1"></i>
+                </a>
+                <%= link_to '#', class: "btn btn-sm btn-light rounded-circle" do %>
+                    <i class="fa-regular fa-heart fs-4 p-1" style="width:25px; height: 25px"></i>
+                <% end %>
+            </div>
+        </div>
+        <div class="product-body bg-transparent p-0">
+            <h5 class="card-title mt-3 d-inline-block"><%= link_to product.name, product %></h5>
+            <!--<p class="card-text"><%#= simple_format(product.description.truncate(100)) %></p> -->
+        </div>
+        <p class="price my-2">
+            <strong><%= number_to_currency(product.unit_price, unit: "₦") %></strong>
+        </p>
+        <p class="text-">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </p>
+    </div>
+</div>
+
+<%= render 'product-modal', product: product %>

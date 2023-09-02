@@ -3,17 +3,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "active_storage_validations", "0.9.8"
+gem "cssbundling-rails"
 gem "devise", "~> 4.9"
-gem "rails", "~> 7.0.7", ">= 7.0.7.2"
-gem "sprockets-rails"
+gem "image_processing", "~> 1.2"
+gem "jbuilder"
+gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "jsbundling-rails"
+gem "rails", "~> 7.0.7", ">= 7.0.7.2"
+gem "redis", "~> 4.0"
+gem "sprockets-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "jbuilder"
-gem "redis", "~> 4.0"
 
 # gem "kredis"
 
@@ -25,7 +27,6 @@ gem "bootsnap", require: false
 
 # gem "sassc-rails"
 
-# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

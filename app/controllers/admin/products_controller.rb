@@ -9,11 +9,14 @@ class Admin::ProductsController < Admin::BaseController
        @product = Product.new
     end
     
+    def show
+    end
+    
     def create
         @product = current_user.products.build(product_params)
         if @product.save
             respond_to do |format|
-                format.html { redirect_to admin_product }
+                format.html { redirect_to admin_products_url(@product) }
             end
         else
             render :new, status: :unprocessable_entity
@@ -24,13 +27,10 @@ class Admin::ProductsController < Admin::BaseController
         
     end
 
-    def show
-    end
-
     def update
         if @product.update(product_params)
             respond_to do |format|
-                format.html { redirect_to admin_product }
+                format.html { redirect_to admin_product_url(@product) }
             end
         else
             render :edit, status: :unprocessable_entity
@@ -40,7 +40,7 @@ class Admin::ProductsController < Admin::BaseController
     def destroy
         if @product.destroy(product_params)
             respond_to do |format|
-                format.html { redirect_to admin_products }
+                format.html { redirect_to admin_products_url }
             end
         end
     end
@@ -48,7 +48,7 @@ class Admin::ProductsController < Admin::BaseController
     private
 
         def product_params
-            params.require(:product).permit(:name, :description, :unit_price, :code, :stock)
+            params.require(:product).permit(:name, :description, :unit_price, :code, :stock, :image, :feature, :archive)
         end
 
         def find_product

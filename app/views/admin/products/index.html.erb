@@ -17,31 +17,35 @@
         <input type="text" class="form-control form-control rounded-0 w-25" placeholder="Search products..." aria-label="Search products..." aria-describedby="basic-addon1">
     </div>
 
-    <div class="table-wrapper">
+    <div class="table-wrapper table-responsive">
         <table class="table border">
             <thead>
                 <tr class="fw-bold tb-header">
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Archived</th>
+                    <th scope="col">Featured</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Code</th>
-                    <th scope="col">Featured</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <% @products.each do |product| %>
                     <tr>
-                        <td><%= product.name %></td>
-                        <td><%= product.description %></td>
-                        <td>Small Chops</td>
-                        <td><%= product.unit_price %></td>
+                        <td class="fw-bold"><%= link_to product.name, admin_product_path(product), class: "text-secondary" %></td>
+                        <td><%= simple_format(product.description.truncate(50)) %></td>
+                        <td><%= product.archive %></td>
+                        <td><%= product.feature %></td>
+                        <td><%= link_to "Small chops", '#' %></td>
+                        <td><%= number_to_currency(product.unit_price, unit: "₦") %></td>
                         <td><%= product.code %></td>
-                        <td>true</td>
                         <td><%= product.stock %></td>
-                        <td><%= product.created_at %></td>
+                        <td><%= product.created_at.strftime("%m/%d/%Y") %></td>
+                        <td class="text-center"><i class="fa-solid fa-ellipsis"></i></td>
                     </tr>
                 <% end %>
             </tbody>
