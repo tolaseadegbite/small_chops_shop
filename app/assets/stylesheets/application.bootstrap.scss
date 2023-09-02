@@ -67,7 +67,7 @@ button {
 
 .reviews-section {
     background-image: url('bg.jpg');
-    background-color: #000000;
+    background-color: bisque;
     background-repeat: no-repeat, repeat;
     background-position: center;
     background-size: 100%;
@@ -99,5 +99,18 @@ button {
     
     .form-col {
       width: 100%;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .reviews-section {
+        height: auto !important;
+        background-image: none;
+    }
+    .healthy-card {
+        height: auto !important;
+    }
+    .reviews-section,.healthy-card {
+        padding: 4em 1em;
     }
 }
