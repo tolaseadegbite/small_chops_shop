@@ -1,0 +1,13 @@
+<div class="container my-3">
+    <%= link_to sanitize("&larr; Back to user page"), admin_user_path(@user) %>
+
+    <div class="header pt-2">
+        <h1>Edit User</h1>
+        <p>Editing <%= @user.first_name %></p>
+    </div>
+    <hr>
+    <br>
+    <div class="form">
+        <%= render 'admin/users/form', user: @user %>
+    </div>
+</div>

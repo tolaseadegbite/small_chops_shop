@@ -1,0 +1,52 @@
+<div class="container my-3">
+    <div class="header pt-2 d-flex justify-content-between">
+        <div class="header-info">
+            <h1>Users (<%= User.count %>)</h1>
+            <p>Manage your users</p>
+        </div>
+        <div class="header-link align-self-center">
+            <%= link_to new_admin_user_path, class: "btn btn-dark rounded-0" do %>
+                <i class="fa-solid fa-plus"></i>
+                Add New
+            <% end %>
+        </div>
+    </div>
+    <hr>
+
+    <div class="mb-3">
+        <input type="text" class="form-control form-control rounded-0 w-25" placeholder="Search user..." aria-label="Search users..." aria-describedby="basic-addon1">
+    </div>
+
+    <div class="table-wrapper table-responsive">
+        <table class="table border">
+            <thead>
+                <tr class="fw-bold tb-header">
+                    <th scope="col">First name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Updated</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <td class="fw-bold"><%= link_to user.first_name, admin_user_path(user) %></td>
+                        <td ><%= user.surname %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.username %></td>
+                        <td><%= user.role %></td>
+                        <td><%= user.address_line_1 %></td>
+                        <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
+                        <td><%= user.updated_at.strftime("%m/%d/%Y") %></td>
+                        <td class="text-center"><i class="fa-solid fa-ellipsis"></i></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

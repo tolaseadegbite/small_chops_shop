@@ -35,8 +35,8 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
 
   enum :role, { 
-    normal: 0,
-    super_admin: 1,
-    admin: 2
+    'Normal': 0,
+    'Super Admin': 1,
+    'Admin': 2
    }
 end

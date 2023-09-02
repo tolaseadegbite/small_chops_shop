@@ -4,7 +4,7 @@ class Admin::BaseController < ApplicationController
 
     # valid roles
 
-    VALID_ROLES = %w[super_admin admin]
+    VALID_ROLES = ['Super Admin', 'Admin']
 
     protected
 

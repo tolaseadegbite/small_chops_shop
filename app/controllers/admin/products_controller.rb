@@ -38,7 +38,7 @@ class Admin::ProductsController < Admin::BaseController
     end
 
     def destroy
-        if @product.destroy(product_params)
+        if @product.destroy
             respond_to do |format|
                 format.html { redirect_to admin_products_url }
             end
