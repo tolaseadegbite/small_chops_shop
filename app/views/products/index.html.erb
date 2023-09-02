@@ -1,12 +1,5 @@
 <div class="container border-top py-5">
-  <div class="category-list text-center fw-bold mb-5">
-      <%= link_to 'ALL PRODUCTS', '#', class: "me-3" %>
-      <%= link_to 'BBQ & GRILL', '#', class: "me-3" %>
-      <%= link_to 'COOKHOUSE', '#', class: "me-3 btn btn-dark rounded-0" %>
-      <%= link_to 'SIDES', '#', class: "me-3" %>
-      <%= link_to 'SMALL CHOPS', '#', class: "me-3" %>
-      <%= link_to 'GRILL PLATTERS', '#', class: "me-3" %>
-  </div>
+  <%= render 'category_list' %>
   <div class="row">
     <%= render @products %>
   </div>
