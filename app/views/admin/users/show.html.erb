@@ -1,0 +1,79 @@
+<div class="container pt-4 pb-5">
+
+    <div class="top-section d-flex justify-content-between">
+        <%= render 'admin/users/admin_user_breadcrumb' %>
+
+        <div class="action-buttons mb-4 text-center">
+            <%= link_to edit_admin_user_path(@user), class: "btn btn-dark btn-sm border rounded-0" do %>
+                <i class="fa-regular fa-trash-can"></i>
+                Edit
+            <% end %>
+
+            <%= link_to admin_user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-dark border btn-sm rounded-0" do %>
+                <i class="fa-regular fa-pen-to-square"></i> 
+                Delete
+            <% end %>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th scope="col">Attributes</th>
+                    <th scope="col">Values</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr>
+                <td><b>ID</b></td>
+                <td><%= @user.id %></td>
+            </tr>
+            <tr>
+                <td><b>First name</b></td>
+                <td><%= @user.first_name %></td>
+            </tr>
+            <tr>
+                <td><b>Surname</b></td>
+                <td><%= @user.surname %></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><b>username</b></td>
+                <td><%= @user.username %></td>
+            </tr>
+            <tr>
+                <td><b>Email Address</b></td>
+                <td><%= @user.email %></td>
+            </tr>
+            <tr>
+                <td><b>Role</b></td>
+                <td><%= @user.role %></td>
+            </tr>
+            <tr>
+                <td><b>Phone number</b></td>
+                <td><%= @user.phone_number %></td>
+            </tr>
+            <tr>
+                <td><b>Address Line 1</b></td>
+                <td><%= @user.address_line_1 %></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><b>Address Line 2</b></td>
+                <td><%= @user.address_line_2 %></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><b>Date created</b></td>
+                <td><%= @user.created_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><b>Last updated</b></td>
+                <td><%= @user.updated_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+        </table>
+    </div>
+</div>
