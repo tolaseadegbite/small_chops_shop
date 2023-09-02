@@ -11,6 +11,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :integer          default(0), not null
 #  surname                :string
 #  username               :string
 #  created_at             :datetime         not null
@@ -32,4 +33,10 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :surname, :address_line_1
 
   has_many :products, dependent: :destroy
+
+  enum :role, { 
+    normal: 0,
+    super_admin: 1,
+    admin: 2
+   }
 end

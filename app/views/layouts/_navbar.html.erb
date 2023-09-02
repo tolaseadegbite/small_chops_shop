@@ -29,18 +29,16 @@
           <li class="nav-item me-0 me-lg-4">
             <%= link_to "Home", root_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
-          <% if user_signed_in? %>
-            <li class="nav-item me-0 me-lg-4">
-                <%= link_to "Shop", shop_path, class: "nav-link text-decoration-none text-dark" %>
-            </li>
-            <li class="nav-item me-0 me-lg-4">
-                <%= link_to "About/Hire me", '#', class: "nav-link text-decoration-none text-dark" %>
-            </li>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Contact", '#', class: "nav-link text-decoration-none text-dark" %>
-            </li>
-          <% end %>
+          <li class="nav-item me-0 me-lg-4">
+              <%= link_to "Shop", shop_path, class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          <li class="nav-item me-0 me-lg-4">
+              <%= link_to "About/Hire me", '#', class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Contact", '#', class: "nav-link text-decoration-none text-dark" %>
+          </li>
         </ul>
 
         <%# Login/signup %>
