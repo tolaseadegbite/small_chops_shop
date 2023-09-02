@@ -2,7 +2,7 @@
     <div class="product-card border-0 bg-transparent">
         <div class="product-img position-relative">
             <%= link_to product do %>
-                <%= image_tag(product.image, class: "rounded-4 img-fluid") if product.image.attached? %>
+                <%= image_tag(product.image, class: "rounded img-fluid") if product.image.attached? %>
             <% end %>
             <div class="img-btns position-absolute top-50 start-50 translate-middle">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#product-<%= product.id %>" class="btn btn-sm btn-light rounded-circle">

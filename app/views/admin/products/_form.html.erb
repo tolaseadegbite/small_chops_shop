@@ -72,5 +72,7 @@
                 <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Updating product...</span>
             <% end %>
         <% end %>
+
+        <%= link_to "Cancel", admin_product_path(@product), class: "btn btn-dark rounded-0" %>
     </div>
 <% end %>

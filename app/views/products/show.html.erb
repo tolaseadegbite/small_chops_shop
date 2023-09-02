@@ -1,6 +1,8 @@
-<div class="container py-5">
+<div class="container border-top py-5">
     <%= render 'category_list' %>
+    <br>
     <%= render 'breadcrumb' %>
+    <br>
 
     <div class="row">
         <div class="col-md-6">
@@ -16,7 +18,7 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
 
-                <span class=""> (<%= link_to pluralize(167, "rating"), '#' %>)</span>
+                <span class="text-dark"> (<%= link_to pluralize(167, "rating"), '#' %>)</span>
             </p>
             <h4><%= number_to_currency(@product.unit_price, unit: "₦") %></h4>
 

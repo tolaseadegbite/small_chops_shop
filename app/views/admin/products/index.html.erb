@@ -36,8 +36,8 @@
             <tbody>
                 <% @products.each do |product| %>
                     <tr>
-                        <td class="fw-bold"><%= link_to product.name, admin_product_path(product), class: "text-secondary" %></td>
-                        <td><%= simple_format(product.description.truncate(50)) %></td>
+                        <td class="fw-bold"><%= link_to product.name, admin_product_path(product) %></td>
+                        <td ><%= simple_format(product.description.truncate(50)) %></td>
                         <td><%= product.archive %></td>
                         <td><%= product.feature %></td>
                         <td><%= link_to "Small chops", '#' %></td>

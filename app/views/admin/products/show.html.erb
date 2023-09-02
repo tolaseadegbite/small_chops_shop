@@ -1,0 +1,38 @@
+<div class="container pt-4 pb-5">
+    <div class="action-buttons mb-4 text-center">
+        <%= link_to edit_admin_product_path(@product), class: "btn btn-dark border rounded-0" do %>
+            <i class="fa-regular fa-trash-can"></i>
+            Edit
+        <% end %>
+        <%= link_to admin_product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-dark border rounded-0" do %>
+            <i class="fa-regular fa-pen-to-square"></i> 
+            Delete
+        <% end %>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <%= image_tag(@product.image, class: "rounded img-fluid mb-3") if @product.image.attached? %>
+        </div>
+
+        <div class="col-md-6">
+            <h1><%= @product.name %></h1>
+            <p class="mb-3">
+                <%= @product.description %>
+            </p>
+            <h4><%= number_to_currency(@product.unit_price, unit: "₦") %></h4>
+
+            <p class="fw-bold mt-3 mb-2">Stock: <%= @product.stock %></p>
+
+            <p class="fw-bold mt-3 mb-2">category: <%= link_to "Grills", '#' %></p>
+            
+            <p class="fw-bold mt-3 mb-2">Code: <%= @product.code %></p>
+            
+            <p class="fw-bold mt-3 mb-2">Featured?: <%= @product.feature %></p>
+            
+            <p class="fw-bold mt-3 mb-2">Archived?: <%= @product.archive %></p>
+            
+            <p class="fw-bold mt-3 mb-2">Date: <%= @product.created_at.strftime("%m/%d/%Y") %></p>
+        </div>
+    </div>
+</div>
