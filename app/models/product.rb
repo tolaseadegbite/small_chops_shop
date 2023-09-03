@@ -12,24 +12,27 @@
 #  unit_price  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category_id :bigint           not null
 #  user_id     :bigint           not null
 #
 # Indexes
 #
-#  index_products_on_name     (name) UNIQUE
-#  index_products_on_user_id  (user_id)
+#  index_products_on_category_id  (category_id)
+#  index_products_on_name         (name) UNIQUE
+#  index_products_on_user_id      (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (category_id => categories.id)
 #  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
     before_create :product_code
     
     belongs_to :user
+    belongs_to :category
 
-
-    validates :user_id, presence: true
+    validates :user_id, :category_id, presence: true
 
     validates :name, presence: true, uniqueness: { case_sensitive: false, message: "Product name must be unique" }
     validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }

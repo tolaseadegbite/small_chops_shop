@@ -34,7 +34,11 @@
 
         <div class="col-md-3 mb-3">
             <%= f.label :category, class: "fw-bold mb-3" %>
-            <%= f.text_field :category, class: "form-control rounded-0" %>
+            <% unless f.object.new_record? %>
+                <%= f.select :category_id, Category.all.pluck(:name, :id), { include_blank: "Select category", selected: @product.category.id }, class: "form-control rounded-0" %>
+            <% else %>
+                <%= f.select :category_id, Category.all.pluck(:name, :id), { include_blank: "Select category" }, class: "form-control rounded-0" %>
+            <% end %>
         </div>
 
         <div class="col-md-3 mb-3">
@@ -59,6 +63,14 @@
                     </small></p>
                 </div>
             </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <% if product.image.attached? %>
+                <%= image_tag product.image, data: { previews_target: "preview" }, class: "img-fluid mb-3" %>
+            <% else %>
+                <%= image_tag "", data: { previews_target: "preview" }, class: "img-fluid mb-3" %>
+            <% end %>
         </div>
     </div>
 

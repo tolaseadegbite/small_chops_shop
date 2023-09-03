@@ -30,4 +30,8 @@
     </div>
 </div>
 
-<%= render 'product-modal', product: product %>
+<% if controller_name == 'product' %>
+    <%= render 'product-modal', product: product %>
+<% else %>
+    <%= render 'products/product-modal', product: product %>
+<% end %>

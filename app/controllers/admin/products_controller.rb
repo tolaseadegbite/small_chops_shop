@@ -1,6 +1,8 @@
 class Admin::ProductsController < Admin::BaseController
     before_action :find_product, only: %w[show edit update destroy]
     before_action :authenticate_user!
+    before_action :find_categories
+    # before_action :find_category, only: :show
 
     def index
         @products = Product.ordered
@@ -49,10 +51,18 @@ class Admin::ProductsController < Admin::BaseController
     private
 
         def product_params
-            params.require(:product).permit(:name, :description, :unit_price, :code, :stock, :image, :feature, :archive)
+            params.require(:product).permit(:name, :description, :unit_price, :code, :stock, :image, :feature, :archive, :category_id)
         end
 
         def find_product
             @product ||= Product.find(params[:id])
+        end
+
+        def find_categories
+            @categories = Category.all.order(:name)
+        end
+
+        def find_category
+            @category ||= @product.category.find(params[:category_id])
         end
 end

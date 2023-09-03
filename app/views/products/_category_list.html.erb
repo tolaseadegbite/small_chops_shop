@@ -1,8 +1,5 @@
 <div class="category-list text-center fw-bold">
-    <%= link_to 'ALL PRODUCTS', '#', class: "me-3" %>
-    <%= link_to 'BBQ & GRILL', '#', class: "me-3" %>
-    <%= link_to 'COOKHOUSE', '#', class: "me-3 btn btn-dark rounded-0" %>
-    <%= link_to 'SIDES', '#', class: "me-3" %>
-    <%= link_to 'SMALL CHOPS', '#', class: "me-3" %>
-    <%= link_to 'GRILL PLATTERS', '#', class: "me-3" %>
+    <% @categories.each do |category| %>
+        <%= link_to category.name, category, class: "me-3 #{category_list_page?('categories')}" %>
+    <% end %>
 </div>

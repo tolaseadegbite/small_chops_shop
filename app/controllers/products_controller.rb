@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+    before_action :set_categories, only: %w[index show]
 
     def index
         @products = Product.ordered
@@ -12,4 +13,10 @@ class ProductsController < ApplicationController
         # random_offset = rand(3)
         # random_product = Product.offset(random_offset).first
     end
+
+    private
+
+        def set_categories
+            @categories = Category.all
+        end
 end

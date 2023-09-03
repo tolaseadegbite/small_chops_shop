@@ -14,7 +14,11 @@
             <strong><%= f.label :banner %></strong>
         </div>
 
-        <%= f.select :banner_id, options_for_select(@banners.collect { |b| [b.label, b.id]}), { include_blank: "Select banner" }, class: "form-control rounded-0" %>
+        <% unless f.object.new_record? %>
+            <%= f.select :banner_id, Banner.all.pluck(:label, :id), { include_blank: "Select banner", selected: @category.banner.id }, class: "form-control rounded-0" %>
+        <% else %>
+            <%= f.select :banner_id, Banner.all.pluck(:label, :id), { include_blank: "Select banner" }, class: "form-control rounded-0" %>
+        <% end %>
     </div>
 
     <div class="actions mb-2">

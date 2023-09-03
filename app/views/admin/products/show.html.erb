@@ -16,29 +16,64 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <%= image_tag(@product.image, class: "rounded img-fluid mb-3") if @product.image.attached? %>
-        </div>
-
-        <div class="col-md-6">
-            <h1><%= @product.name %></h1>
-            <p class="mb-3">
-                <%= @product.description %>
-            </p>
-            <h4><%= number_to_currency(@product.unit_price, unit: "₦") %></h4>
-
-            <p class="fw-bold mt-3 mb-2">Stock: <%= @product.stock %></p>
-
-            <p class="fw-bold mt-3 mb-2">category: <%= link_to "Grills", '#' %></p>
-            
-            <p class="fw-bold mt-3 mb-2">Code: <%= @product.code %></p>
-            
-            <p class="fw-bold mt-3 mb-2">Featured?: <%= @product.feature %></p>
-            
-            <p class="fw-bold mt-3 mb-2">Archived?: <%= @product.archive %></p>
-            
-            <p class="fw-bold mt-3 mb-2">Date: <%= @product.created_at.strftime("%m/%d/%Y") %></p>
-        </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th scope="col">Attributes</th>
+                    <th scope="col">Values</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr>
+                <td><b>ID</b></td>
+                <td><%= @product.id %></td>
+            </tr>
+            <tr>
+                <td><b>Name</b></td>
+                <td><%= @product.name %></td>
+            </tr>
+            <tr>
+                <td><b>Category</b></td>
+                <td><%= @product.category.name %></td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td><%= @product.description %></td>
+            </tr>
+            <tr>
+                <td><b>Image</b></td>
+                <td><%= image_tag(@product.image, class: "w-25") %></td>
+            </tr>
+            <tr>
+                <td><b>Unit Price</b></td>
+                <td><%= number_to_currency(@product.unit_price, unit: "₦") %></td>
+            </tr>
+            <tr>
+                <td><b>Code</b></td>
+                <td><%= @product.code %></td>
+            </tr>
+            <tr>
+                <td><b>Featured?</b></td>
+                <td><%= @product.feature %></td>
+            </tr>
+            <tr>
+                <td><b>Archived?</b></td>
+                <td><%= @product.archive %></td>
+            </tr>
+            <tr>
+                <td><b>Created by</b></td>
+                <td><%= @product.user.username %></td>
+            </tr>
+            <tr>
+                <td><b>Date created</b></td>
+                <td><%= @product.created_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+            <tr>
+                <td><b>Last updated</b></td>
+                <td><%= @product.updated_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+        </table>
     </div>
 </div>
