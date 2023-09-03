@@ -13,11 +13,15 @@
   </head>
 
   <body>
-      <%= render 'layouts/admin' %>
+    <%= render 'layouts/admin' %>
+    <div id="flash" class="flash">
+      <%= render "layouts/flash" %>
+    </div>
 
+    <div class="flex-wrapper">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
 
-    <%= yield %>
-
-    <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -18,10 +18,10 @@ class Admin::CategoriesController < Admin::BaseController
          @category = current_user.categories.build(category_params)
          if @category.save
              respond_to do |format|
-                 format.html { redirect_to admin_categories_url(@category) }
+                format.html { redirect_to admin_categories_url(@category) }
              end
          else
-             render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_entity
          end
      end
      

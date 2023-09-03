@@ -17,7 +17,7 @@ class Admin::ProductsController < Admin::BaseController
         @product = current_user.products.build(product_params)
         if @product.save
             respond_to do |format|
-                format.html { redirect_to admin_products_url(@product) }
+                format.html { redirect_to admin_products_url(@product), notice: "Product created." }
             end
         else
             render :new, status: :unprocessable_entity
@@ -31,7 +31,7 @@ class Admin::ProductsController < Admin::BaseController
     def update
         if @product.update(product_params)
             respond_to do |format|
-                format.html { redirect_to admin_product_url(@product) }
+                format.html { redirect_to admin_product_url(@product), notice: "Product updated." }
             end
         else
             render :edit, status: :unprocessable_entity
@@ -41,7 +41,7 @@ class Admin::ProductsController < Admin::BaseController
     def destroy
         if @product.destroy
             respond_to do |format|
-                format.html { redirect_to admin_products_url }
+                format.html { redirect_to admin_products_url, notice: "Product destroyed." }
             end
         end
     end

@@ -31,7 +31,7 @@ class Admin::BannersController < Admin::BaseController
     def update
         if @banner.update(banner_params)
             respond_to do |format|
-                format.html { redirect_to admin_banner_url(@banner) }
+                format.html { redirect_to admin_banner_url(@banner), notice: "Banner updated." }
             end
         else
             render :edit, status: :unprocessable_entity

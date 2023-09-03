@@ -13,15 +13,14 @@
   </head>
 
   <body>
-    <% if controller_name.include? "::" %>
-      <%= render 'layouts/admin' %>
-    <% else %>
       <%= render 'layouts/navbar' %>
-    <% end %>
+      <div id="flash" class="flash">
+        <%= render "layouts/flash" %>
+      </div>
 
-
-    <%= yield %>
-
-    <%= render 'layouts/footer' %>
+      <div class="flex-wrapper">
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

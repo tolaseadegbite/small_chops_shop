@@ -5,7 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Rowdies:wght@400&display=swap');
 
 // import components
+@import 'components/flash';
 @import 'components/navbar';
+
+// import config
+@import 'config/variable';
+@import 'config/animation';
 
 // reset
 
@@ -31,6 +36,13 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Rowdies', cursive;
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 // form
