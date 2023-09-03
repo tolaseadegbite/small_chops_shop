@@ -2,7 +2,7 @@
   <div class="container">
     <%= link_to root_path, class: "navbar-brand fw-bold" do %>
       <i class="fa-solid fa-utensils"></i>
-      CHOPS BY LASHE
+      JOLLY GRILLS
     <% end %>
     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
     <%# Sidebar header %>
 
       <div class="offcanvas-header text-white border-bottom">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
         <button 
             type="button" 
             class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" 
@@ -30,14 +30,18 @@
             <%= link_to "Home", root_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
           <li class="nav-item me-0 me-lg-4">
-              <%= link_to "Shop", shop_path, class: "nav-link text-decoration-none text-dark" %>
+            <%= link_to "Shop", shop_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
           <li class="nav-item me-0 me-lg-4">
-              <%= link_to "About/Hire me", '#', class: "nav-link text-decoration-none text-dark" %>
+            <%= link_to "About/Hire me", '#', class: "nav-link text-decoration-none text-dark" %>
           </li>
           </li>
           <li class="nav-item">
-              <%= link_to "Contact", '#', class: "nav-link text-decoration-none text-dark" %>
+            <%= link_to "Contact", '#', class: "nav-link text-decoration-none text-dark" %>
+          </li>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Admin Area', admin_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
         </ul>
 
@@ -45,10 +49,13 @@
 
         <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">
             <% if user_signed_in? %>
-                <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-sm btn-secondary" %>
+              <%# if current_user.role == 'Admin' or current_user.role == 'Super Admin' %>
+                <%= link_to 'Admin Area', admin_path, class: "nav-link text-decoration-none" %>
+              <%# end %>
+              <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-sm btn-secondary" %>
             <% else %>
-                <%= link_to "Signup", new_user_registration_path, class: "btn btn-secondary btn-sm" %>
-                <%= link_to "Login", new_user_session_path, class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Signup", new_user_registration_path, class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Login", new_user_session_path, class: "btn btn-secondary btn-sm" %>
             <% end %>
         </div>
       </div>

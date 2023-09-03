@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
     layout 'admin'
-    before_action :restrict_user_by_role
+    # before_action :restrict_user_by_role
 
     # valid roles
 

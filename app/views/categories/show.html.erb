@@ -1,9 +1,10 @@
-<section class="category" style="background-image: url(<%= rails_blob_url(@category.banner.image) %>); background-color: bisque; background-repeat: no-repeat, repeat; background-position: center; background-size: 100%;">
-  <br>
+<section class="category" style="background-image: url(<%= rails_blob_url(@category.banner.image) %>); background-color: #000; background-repeat: no-repeat, repeat; background-position: center; background-size: 100%;">
 
-  <%= render 'products/category_list' %>
+  <div class="pt-3">
+    <%= render 'products/category_list' %>
+  </div>
 
-  <h1 class="banner-label text-center text-white p-4 bg-dark w-50 mx-auto" style="margin: 3em 0;">
+  <h1 class="banner-label text-center text-white w-md-100 w-lg-50 mx-auto" style="margin: 3em 0;">
     <%= @category.banner.label %>
   </h1>
 </section>

@@ -40,7 +40,7 @@
                         <td ><%= simple_format(product.description.truncate(50)) %></td>
                         <td><%= product.archive %></td>
                         <td><%= product.feature %></td>
-                        <td><%= link_to "Small chops", '#' %></td>
+                        <td><%= link_to product.category.name, admin_category_path(product) %></td>
                         <td><%= number_to_currency(product.unit_price, unit: "₦") %></td>
                         <td><%= product.code %></td>
                         <td><%= product.stock %></td>

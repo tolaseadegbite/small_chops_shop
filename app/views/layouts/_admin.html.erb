@@ -25,6 +25,7 @@
 
       <%# Sidebar body %>
       <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+        <% if user_signed_in? %>
         <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3 fs-6 fw-bold">
           <li class="nav-item me-0 me-lg-4">
             <%= link_to "Dashboard", admin_path, class: "nav-link text-decoration-none text-dark" %>
@@ -45,6 +46,7 @@
             <%= link_to "Orders", admin_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
         </ul>
+        <% end %>
 
         <%# Login/signup %>
 

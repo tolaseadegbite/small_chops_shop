@@ -32,7 +32,7 @@
                 <% @categories.each do |category| %>
                     <tr>
                         <td class="fw-bold"><%= link_to category.name, admin_category_path(category) %></td>
-                        <td><%= category.banner.label %></td>
+                        <td><%= link_to category.banner.label, admin_banner_path(category) %></td>
                         <td><%= category.user.username %></td>
                         <td><%= category.created_at.strftime("%m/%d/%Y") %></td>
                         <td><%= category.updated_at.strftime("%m/%d/%Y") %></td>

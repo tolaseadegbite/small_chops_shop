@@ -12,7 +12,10 @@
 
   <body>
 
-    <%= yield %>
+    <div class="flex-wrapper">
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    </div>
     
   </body>
 </html>
