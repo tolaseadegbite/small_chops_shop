@@ -108,6 +108,14 @@ button {
     box-shadow: 0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5);
 }
 
+// navbar
+
+.navbar-brand {
+    border: 2px solid #000;
+    border-left: none;
+    padding-right: 10px;
+}
+
 // media queries
 
 @include media-breakpoint-down(xl) {
