@@ -1,0 +1,55 @@
+<div class="container pt-4 pb-5">
+
+    <div class="top-section d-flex justify-content-between">
+        <%= render 'admin/categories/admin_category_breadcrumb' %>
+
+        <div class="action-buttons mb-4 text-center">
+            <%= link_to edit_admin_category_path(@category), class: "btn btn-dark btn-sm border rounded-0" do %>
+                <i class="fa-regular fa-trash-can"></i>
+                Edit
+            <% end %>
+
+            <%= link_to admin_category_path(@category), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-dark border btn-sm rounded-0" do %>
+                <i class="fa-regular fa-pen-to-square"></i> 
+                Delete
+            <% end %>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th scope="col">Attributes</th>
+                    <th scope="col">Values</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr>
+                <td><b>ID</b></td>
+                <td><%= @category.id %></td>
+            </tr>
+            <tr>
+                <td><b>Label</b></td>
+                <td><%= @category.name %></td>
+            </tr>
+            <tr>
+                <td><b>Banner</b></td>
+                <td><%= link_to @category.banner.label, admin_banner_path(@category) %></td>
+            </tr>
+            <tr>
+                <td><b>Created by</b></td>
+                <td><%= @category.user.username %></td>
+            </tr>
+            <tr>
+                <td><b>Date created</b></td>
+                <td><%= @category.created_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+            <tr>
+                <td><b>Last updated</b></td>
+                <td><%= @category.updated_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+        </table>
+    </div>
+</div>

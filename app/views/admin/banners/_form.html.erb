@@ -1,0 +1,30 @@
+<%= form_with model: [:admin, banner] do |f| %>
+    <%= render 'layouts/errors', f: f %>
+
+    <div class="mb-3">
+        <div class="mb-1">
+            <strong><%= f.label :label %></strong>
+        </div>
+            <%= f.text_field :label, autofocus: true, class: "form-control rounded-0" %>
+    </div>
+
+    <%= render 'admin/banners/image_preview', f: f, banner: banner %>
+
+    <div class="actions mb-2">
+        <%= f.button "Log in", class: "btn btn-dark rounded-0" do %>
+            <% if f.object.new_record? %>
+                <span class="show-when-enabled">Create banner</span>
+                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Creating banner...</span>
+            <% else %>
+                <span class="show-when-enabled">Update banner</span>
+                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Updating banner...</span>
+            <% end %>
+        <% end %>
+
+        <% if f.object.new_record? %>
+            <%= link_to "Cancel", admin_banners_path, class: "btn btn-dark rounded-0" %>
+        <% else %>
+            <%= link_to "Cancel", admin_banner_path(@banner), class: "btn btn-dark rounded-0" %>
+        <% end %>
+    </div>
+<% end %>

@@ -1,0 +1,13 @@
+<div data-controller="previews">
+    <div class="mb-3">
+        <strong><%= f.label :image %></strong>
+
+        <%= f.file_field :image, class: "form-control", direct_upload: true, data: { previews_target: "input", action: "change->previews#preview" } %>
+    </div>
+
+    <% if banner.image.attached? %>
+        <%= image_tag banner.image, data: { previews_target: "preview" }, class: "w-25 mb-3" %>
+    <% else %>
+        <%= image_tag "", data: { previews_target: "preview" }, class: "w-25 mb-3" %>
+    <% end %>
+</div>

@@ -1,0 +1,45 @@
+<div class="container my-3">
+    <div class="header pt-2 d-flex justify-content-between">
+        <div class="header-info">
+            <h1>Categories (<%= Category.count %>)</h1>
+            <p>Manage your Categories</p>
+        </div>
+        <div class="header-link align-self-center">
+            <%= link_to new_admin_category_path, class: "btn btn-dark rounded-0" do %>
+                <i class="fa-solid fa-plus"></i>
+                Add New
+            <% end %>
+        </div>
+    </div>
+    <hr>
+
+    <div class="mb-3">
+        <input type="text" class="form-control form-control rounded-0 w-25" placeholder="Search category..." aria-label="Search Categories..." aria-describedby="basic-addon1">
+    </div>
+
+    <div class="table-wrapper table-responsive">
+        <table class="table border">
+            <thead>
+                <tr class="fw-bold tb-header">
+                    <th scope="col">Name</th>
+                    <th scope="col">Banner</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Updated</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td class="fw-bold"><%= link_to category.name, admin_category_path(category) %></td>
+                        <td><%= category.banner.label %></td>
+                        <td><%= category.user.username %></td>
+                        <td><%= category.created_at.strftime("%m/%d/%Y") %></td>
+                        <td><%= category.updated_at.strftime("%m/%d/%Y") %></td>
+                        <td class="text-center"><i class="fa-solid fa-ellipsis"></i></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

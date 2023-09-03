@@ -1,0 +1,37 @@
+<%= form_with model: [:admin, category] do |f| %>
+    <%= render 'layouts/errors', f: f %>
+
+    <div class="mb-3">
+        <div class="mb-1">
+            <strong><%= f.label :name %></strong>
+        </div>
+            <%= f.text_field :name, autofocus: true, class: "form-control rounded-0" %>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="mb-1">
+            <strong><%= f.label :banner %></strong>
+        </div>
+
+        <%= f.select :banner_id, options_for_select(@banners.collect { |b| [b.label, b.id]}), { include_blank: "Select banner" }, class: "form-control rounded-0" %>
+    </div>
+
+    <div class="actions mb-2">
+        <%= f.button "Log in", class: "btn btn-dark rounded-0" do %>
+            <% if f.object.new_record? %>
+                <span class="show-when-enabled">Create category</span>
+                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Creating category...</span>
+            <% else %>
+                <span class="show-when-enabled">Update category</span>
+                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Updating category...</span>
+            <% end %>
+        <% end %>
+
+        <% if f.object.new_record? %>
+            <%= link_to "Cancel", admin_categories_path, class: "btn btn-dark rounded-0" %>
+        <% else %>
+            <%= link_to "Cancel", admin_category_path(@category), class: "btn btn-dark rounded-0" %>
+        <% end %>
+    </div>
+<% end %>

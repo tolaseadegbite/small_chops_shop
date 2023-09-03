@@ -73,6 +73,10 @@
             <% end %>
         <% end %>
 
-        <%= link_to "Cancel", admin_product_path(@product), class: "btn btn-dark rounded-0" %>
+        <% if !(f.object.new_record?) %>
+            <%= link_to "Cancel", admin_product_path(@product), class: "btn btn-dark rounded-0" %>
+        <% else %>
+            <%= link_to "Cancel", admin_products_path, class: "btn btn-dark rounded-0" %>
+        <% end %>
     </div>
 <% end %>

@@ -1,0 +1,13 @@
+<div class="container my-3">
+    <%= link_to sanitize("&larr; Back to banner page"), admin_banner_path(@banner) %>
+
+    <div class="header pt-2">
+        <h1>Edit Banner</h1>
+        <p>Editing <%= @banner.label %></p>
+    </div>
+    <hr>
+    <br>
+    <div class="form">
+        <%= render 'admin/banners/form', banner: @banner %>
+    </div>
+</div>

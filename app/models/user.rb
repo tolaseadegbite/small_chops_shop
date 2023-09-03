@@ -34,6 +34,8 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :surname, :address_line_1
 
   has_many :products, dependent: :destroy
+  has_many :banners, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   enum :role, { 
     'Normal': 0,

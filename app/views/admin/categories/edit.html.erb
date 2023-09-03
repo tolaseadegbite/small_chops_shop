@@ -1,0 +1,13 @@
+<div class="container my-3">
+    <%= link_to sanitize("&larr; Back to category page"), admin_category_path(@category) %>
+
+    <div class="header pt-2">
+        <h1>Edit category</h1>
+        <p>Editing <%= @category.label %></p>
+    </div>
+    <hr>
+    <br>
+    <div class="form">
+        <%= render 'admin/categories/form', category: @category %>
+    </div>
+</div>
