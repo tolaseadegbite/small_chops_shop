@@ -6,4 +6,8 @@ module ApplicationHelper
     def category_list_page?(link_name)
         return "text-white" if controller_name == link_name
     end
+
+    def category_link_page?(link_name, link_action)
+        return "btn btn-dark" if controller_name == link_name && action_name == link_action
+    end
 end

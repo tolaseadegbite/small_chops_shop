@@ -1,5 +1,5 @@
 <div class="category-list text-center fw-bold">
     <% @categories.each do |category| %>
-        <%= link_to category.name, category, class: "me-3 #{category_list_page?('categories')}" %>
+        <%= link_to category.name, category, class: "me-3 #{category_list_page?('categories')} #{ 'btn btn-dark' if controller_name == 'categories' && @category.id == category.id }" %>
     <% end %>
 </div>
