@@ -28,6 +28,7 @@ class Review < ApplicationRecord
 
   validates_presence_of :title, :body
   validates_presence_of :rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5, only_integer: true}
+  validates :user_id, uniqueness: { scope: [:product_id], message: "You have already reviewed this product." }
 
   after_commit :update_average_rating, on: [:create, :update, :destroy]
 

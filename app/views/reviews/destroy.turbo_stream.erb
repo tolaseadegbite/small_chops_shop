@@ -1,0 +1,9 @@
+<%= turbo_stream.remove @review %>
+<%= render_turbo_stream_flash_messages %>
+
+<% unless current_user.reviews.where(product: @product).exists? %>
+  <%= turbo_stream.update Review.new do %>
+    <%= render "products/new_review_button" %>
+  <% end %>
+  <%= turbo_stream.remove 'review_restriction_text' %>
+<% end %>

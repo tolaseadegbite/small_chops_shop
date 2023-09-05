@@ -1,0 +1,39 @@
+<%= turbo_frame_tag review do %>
+    <div class="d-flex align-items-center border-bottom pt-3" sty
+    ="border-color: #d5d5d5">
+        <div class="flex-shrink-0">
+            <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %>
+        </div>
+        <div class="ms-3 flex-grow-1">
+            <% 
+                review_star_classes = %w["text-dark text-dark text-dark text-dark text-dark"]
+
+                
+                review.rating.times do |i|
+                    review_star_classes[i] = 'text-warning'
+                end
+            %>
+            <div class="d-flex">
+                <% review_star_classes.each do |star_class| %>
+                    <span class="<%= star_class %> mb-0 pb-0">
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                <% end %>
+            </div>
+            <p class="my-2 fw-bold"><%= link_to review.user.username, '#' %></p>
+            <h6><%= review.title %></h6>
+            <p class="mt-0 pt-0"><%= review.body %></p>
+        </div>
+        <% if user_signed_in? && current_user == review.user %>
+            <div class="dropdown">
+                <a href="#" class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fs-4 fa-ellipsis-vertical"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <%= link_to "Edit", edit_product_review_path(@product, review), class: "dropdown-item" %>
+                    <%= link_to "Delete", product_review_path(@product, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+                </ul>
+            </div>
+        <% end %>
+    </div>
+<% end %>

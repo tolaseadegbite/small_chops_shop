@@ -1,0 +1,6 @@
+<% unless current_user.reviews.where(product: @product).exists? %>
+    <hr>
+    <%= link_to "New review", new_product_review_path(@product), data: { turbo_frame: dom_id(Review.new) }, class: "btn btn-dark mb-3" %>
+<% else %>
+    <%= render 'review_restriction_text' %>
+<% end %>

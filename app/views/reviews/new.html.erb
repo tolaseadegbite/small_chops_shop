@@ -8,7 +8,10 @@
     </div>
     <hr>
     <br>
-    <div class="form">
-        <%= render 'form',  product: @product, review: @review %>
-    </div>
+
+    <%= turbo_frame_tag @review do %>
+        <div class="form">
+            <%= render 'form',  product: @product, review: @review %>
+        </div>
+    <% end %>
 </div>

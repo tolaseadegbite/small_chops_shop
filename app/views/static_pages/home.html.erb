@@ -6,7 +6,7 @@
           Meet, eat and enjoy the true taste
         </h1>
 
-        <%= link_to "Order now", '#', class: "btn btn-warning btn-lg rounded-0 mt-4" %>
+        <%= link_to "Order now", shop_path, class: "btn btn-warning btn-lg rounded-0 mt-4" %>
 
         <!--<div class="hero-socials mt-5">
           <i class="fa-brands fa-instagram fs-4 p-2 rounded-circle shadow me-3" style="width:25px; height: 25px"></i>
@@ -99,111 +99,33 @@
 
       <div class="col-md-12 col-lg-4">
         <div class="row">
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <% @reviews.each do |review| %>
+            <div class="col-md-6">
+              <div class="card text-bg-light mb-3 shadow">
+                <div class="card-body bg-white rounded-3">
+                  <% 
+                    review_star_classes = %w["text-dark text-dark text-dark text-dark text-dark"]
 
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
+                    
+                    review.rating.times do |i|
+                        review_star_classes[i] = 'text-warning'
+                    end
+                %>
+                <h6><%=  link_to review.title, product_path(review.product) %></h6>
+                <div class="d-flex">
+                    <% review_star_classes.each do |star_class| %>
+                        <span class="<%= star_class %> mb-0 pb-0">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                    <% end %>
+                </div>
+                  <p class="card-text" style="font-size: 14px;"><%= review.body.truncate(50) %></p>
+
+                  <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title"><%= link_to review.user.username, '#' %></span></strong>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card text-bg-light mb-3 shadow">
-              <div class="card-body bg-white rounded-3">
-                <p class="text-warning">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </p>
-                <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %><strong><span class="card-title">tolasekelvin</span></strong>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
