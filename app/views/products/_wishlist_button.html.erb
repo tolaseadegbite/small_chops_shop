@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+    <% if current_user.wishlists.find_by(product: @product).nil? %>
+
+        <%= button_to product_wishlists_path(@product), params: {wishlist: { product_id: @product.id } }, class: "btn btn-light border btn-sm" do %>
+            <i class="fa-regular fa-heart"></i>
+            Add to wishlist (<%= @product.wishlists.count %>)
+        <% end %>
+    <% else %>
+        <%= link_to product_wishlist_path(@product, @product.wishlists.find_by(user: current_user)), data: { turbo_method: :delete }, class: "btn btn-sm btn-dark" do %>
+            <i class="fa-solid fa-heart"></i>
+            Remove from wishlists (<%= @product.wishlists.count %>)
+        <% end %>
+    <% end %>
+<% end %>

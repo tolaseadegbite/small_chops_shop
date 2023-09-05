@@ -38,6 +38,8 @@ class User < ApplicationRecord
   has_many :banners, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :wishlists, dependent: :destroy
+  has_many :wishlisted_products, through: :wishlists, source: :product
 
   enum :role, { 
     'Normal': 0,

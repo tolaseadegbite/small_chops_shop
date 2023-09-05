@@ -8,10 +8,9 @@
             <h1>
                 <%= @product.name %>
             </h1>
-            <%= link_to '#', class: "btn btn-sm btn-dark" do %>
-                <i class="fa-regular fa-heart"></i>
-                Add to wishlist
-            <% end %>
+            
+            <%= render 'wishlist_button' %>
+
         </div>
 
         <% if @product.average_rating.present? %>

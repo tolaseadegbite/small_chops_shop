@@ -35,6 +35,8 @@ class Product < ApplicationRecord
     belongs_to :category
 
     has_many :reviews, dependent: :destroy
+    has_many :wishlists, dependent: :destroy
+    has_many :wishlist_users, through: :wishlists, source: :user
 
     validates :user_id, :category_id, presence: true
 

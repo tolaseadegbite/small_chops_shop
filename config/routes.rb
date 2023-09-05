@@ -12,13 +12,15 @@ Rails.application.routes.draw do
     resources :banners
     resources :categories
   end
+
   
   resources :products do
     resources :reviews
+    resources :wishlists, only: [:create, :destroy]
   end
+  
   resources :categories
 
-  
   get '/shop', to: 'products#index', as: 'shop'
   get '/hire_me', to: 'static_pages#about', as: 'about'
 end
