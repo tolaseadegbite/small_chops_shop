@@ -12,6 +12,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  reviews_count          :integer          default(0)
 #  role                   :integer          default("Normal"), not null
 #  surname                :string
 #  username               :string

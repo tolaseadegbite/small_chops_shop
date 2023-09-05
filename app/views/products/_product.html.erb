@@ -21,11 +21,12 @@
             <strong><%= number_to_currency(product.unit_price, unit: "₦") %></strong>
         </p>
         <p class="text-">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <% if product.reviews.present? %>
+                <strong>Average rating:</strong> <%= product.average_rating.round(2) %>
+                <i class="fa-solid fa-star"></i>
+            <% else %>
+                No reviews available
+            <% end %>
         </p>
     </div>
 </div>

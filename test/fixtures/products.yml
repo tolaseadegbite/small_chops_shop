@@ -2,18 +2,20 @@
 #
 # Table name: products
 #
-#  id          :bigint           not null, primary key
-#  archive     :boolean          default(FALSE)
-#  code        :string
-#  description :text
-#  feature     :boolean          default(FALSE)
-#  name        :string
-#  stock       :integer
-#  unit_price  :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint           not null
-#  user_id     :bigint           not null
+#  id             :bigint           not null, primary key
+#  archive        :boolean          default(FALSE)
+#  average_rating :decimal(, )      default(0.0)
+#  code           :string
+#  description    :text
+#  feature        :boolean          default(FALSE)
+#  name           :string
+#  reviews_count  :integer          default(0)
+#  stock          :integer
+#  unit_price     :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  category_id    :bigint           not null
+#  user_id        :bigint           not null
 #
 # Indexes
 #

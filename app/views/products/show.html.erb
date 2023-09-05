@@ -4,54 +4,9 @@
     <%= render 'breadcrumb' %>
     <br>
 
-    <div class="row">
-        <div class="col-md-6">
-            <%= image_tag(@product.image, class: "rounded img-fluid mb-3") if @product.image.attached? %>
-        </div>
+    <%= render 'product_information' %>
 
-        <div class="col-md-6">
-            <div class="show-header d-flex justify-content-between align-items-center">
-                <h1>
-                    <%= @product.name %>
-                </h1>
-                <%= link_to '#', class: "btn btn-sm btn-dark" do %>
-                    <i class="fa-regular fa-heart"></i>
-                    Add to wishlist
-                <% end %>
-            </div>
-            <p class="text-warning">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+    <%= render 'related_products' %>
 
-                <span class="text-dark"> (<%= link_to pluralize(167, "rating"), '#' %>)</span>
-            </p>
-            <h4><%= number_to_currency(@product.unit_price, unit: "₦") %></h4>
-
-            <p class="mt-3 mb-2"><strong>Stock:</strong> <%= @product.stock %>, <strong>category: </strong><%= link_to @product.category.name, @product.category %></p>
-
-            <p class="mb-3">
-                <%= @product.description %>
-            </p>
-
-            <div class="mb-3 w-50">
-                <input type="number" class="form-control d-inline-block w-25 bg-transparent rounded-0" placeholder="Qty" aria-label="Quantity" aria-describedby="basic-addon1">
-                <%= link_to "Add to cart", '#', class: "btn btn-warning rounded-0" %>
-            </div>
-            <%= link_to "Buy now", '#', class: "btn btn-dark rounded-0" %>
-        </div>
-    </div>
-
-    <div class="related mt-4">
-        <h2 class="text-center">You may also like</h2>
-        <div class="row">
-            <%= render @products, locals: { product: @product } %>
-        </div>
-    </div>
-
-    <div class="show-reviews mt-5">
-        <h2 class="text-center">Reviews</h2>
-    </div>
+    <%= render 'reviews' %>
 </div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'static_pages#home'
   
   namespace :admin do
     get '/', to: '/admin/dashboard#index'
@@ -11,12 +13,11 @@ Rails.application.routes.draw do
     resources :categories
   end
   
-  devise_for :users
-  root 'static_pages#home'
-  
-  resources :products
-
+  resources :products do
+    resources :reviews
+  end
   resources :categories
+
   
   get '/shop', to: 'products#index', as: 'shop'
   get '/hire_me', to: 'static_pages#about', as: 'about'

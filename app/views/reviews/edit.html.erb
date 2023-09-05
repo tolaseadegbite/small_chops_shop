@@ -1,0 +1,14 @@
+<div class="container my-3">
+
+    <%= link_to sanitize("&larr; back to: #{@product.name}"), @product %>
+
+    <div class="header pt-2">
+        <h1>Edit Review</h1>
+        <p class="fs-5"><strong>You are reviewing:</strong> <%= link_to @product.name, @product %></p>
+    </div>
+    <hr>
+    <br>
+    <div class="form">
+        <%= render 'form',  product: @product, review: @review %>
+    </div>
+</div>

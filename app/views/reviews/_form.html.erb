@@ -1,0 +1,27 @@
+<%= form_with model: [product, review] do |f| %>
+
+  <div class="mb-3">
+        <%= f.label :rating, "What's your overall rating?" %>
+        <div class="rating">
+            <%= f.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
+                <%= star.radio_button %>
+                <%= star.label(class: "text-white") %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <strong><%= f.label :title, "Add reviw title" %></strong>
+        <%= f.text_field :title, class: "form-control rounded-0" %>
+    </div>
+
+    <div class="mb-3">
+        <strong><%= f.label :body, "Leave a review" %></strong>
+        <%= f.text_area :body, class: "form-control rounded-0",
+                            placeholder: "Tell people about your experience" %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Submit your review", class: "btn btn-dark" %>
+    </div>
+<% end %>
