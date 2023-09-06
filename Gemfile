@@ -9,6 +9,7 @@ gem "devise", "~> 4.9"
 gem "image_processing", "~> 1.2"
 gem "jbuilder"
 gem "jsbundling-rails"
+gem 'paystack'
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
