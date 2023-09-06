@@ -18,10 +18,13 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  paystack_customer_id   :string
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_paystack_customer_id  (paystack_customer_id) UNIQUE
+#  index_users_on_phone_number          (phone_number)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #
@@ -46,4 +49,19 @@ class User < ApplicationRecord
     'Super Admin': 1,
     'Admin': 2
    }
+
+   after_create do
+    return if paystack_customer_id.present?
+
+    paystack_customers = PaystackCustomers.new(PAYSTACKOBJ)
+
+    customer = paystack_customers.create(
+                                        email: email ,
+                                        first_name: first_name,
+                                        last_name: surname,
+                                        phone: phone_number
+                                       )
+
+    update(paystack_customer_id: customer['data']['customer_code'])
+  end
 end
