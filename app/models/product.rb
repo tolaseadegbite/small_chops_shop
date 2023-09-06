@@ -29,6 +29,13 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
+    
+    validates :user_id, :category_id, presence: true
+
+    validates :name, presence: true, uniqueness: { case_sensitive: false, message: "Product name must be unique" }
+    validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
+    validates :unit_price, presence: true, numericality: { greater_than: 0 }
+
     before_create :product_code
     
     belongs_to :user
@@ -37,12 +44,8 @@ class Product < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :wishlists, dependent: :destroy
     has_many :wishlist_users, through: :wishlists, source: :user
-
-    validates :user_id, :category_id, presence: true
-
-    validates :name, presence: true, uniqueness: { case_sensitive: false, message: "Product name must be unique" }
-    validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
-    validates :unit_price, presence: true, numericality: { greater_than: 0 }
+    has_many :orderables, dependent: :destroy
+    has_many :carts, through: :orderables, dependent: :destroy
 
     scope :ordered, -> { order(created_at: :desc) }
 

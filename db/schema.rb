@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_184346) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_185449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_184346) do
     t.index ["user_id"], name: "index_banners_on_user_id"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "banner_id", null: false
@@ -58,6 +63,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_184346) do
     t.datetime "updated_at", null: false
     t.index ["banner_id"], name: "index_categories_on_banner_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "orderables", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orderables_on_cart_id"
+    t.index ["product_id"], name: "index_orderables_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -131,6 +146,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_184346) do
   add_foreign_key "banners", "users"
   add_foreign_key "categories", "banners"
   add_foreign_key "categories", "users"
+  add_foreign_key "orderables", "carts"
+  add_foreign_key "orderables", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "products"

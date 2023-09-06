@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   end
   
   resources :categories
+  
+  get '/cart', to: 'cart#show'
+
+  post 'cart/add'
+  post 'cart/remove'
 
   get '/shop', to: 'products#index', as: 'shop'
   get '/hire_me', to: 'static_pages#about', as: 'about'

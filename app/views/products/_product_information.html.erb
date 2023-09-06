@@ -44,8 +44,12 @@
         </p>
 
         <div class="mb-3 w-50">
-            <input type="number" class="form-control d-inline-block w-25 bg-transparent rounded-0" placeholder="Qty" aria-label="Quantity" aria-describedby="basic-addon1">
-            <%= link_to "Add to cart", '#', class: "btn btn-warning rounded-0" %>
+            <%= form_with(url: cart_add_path) do |f| %>
+                <%= f.hidden_field :id, value: @product.id %>
+                <%= f.select :quantity, options_for_select(1..@product.stock), {  }, style: "cursor: pointer", class: "form-select form-control d-inline-block w-25 bg-transparent rounded-0" %>
+                <%#= f.number_field :quantity, value: 0, min: 1, class: "form-control d-inline-block w-25 bg-transparent rounded-0" %>
+                <%= f.submit "Add to cart", class: "btn btn-warning rounded-0" %>
+            <% end %>
         </div>
         <%= link_to "Buy now", '#', class: "btn btn-dark rounded-0" %>
     </div>
