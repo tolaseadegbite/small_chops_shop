@@ -2,7 +2,11 @@
     <div class="d-flex align-items-center border-bottom pt-3" sty
     ="border-color: #d5d5d5">
         <div class="flex-shrink-0">
-            <%= image_tag('avatar.jpg', class: "img-fluid rounded-circle me-2", size: "30x30") %>
+            <% if review.user.avatar.attached? %>
+                <%= link_to image_tag(review.user.avatar, size: "35x35", style: "border-radius: 999px;"), '#' %>
+            <% else %>
+                <%= link_to image_tag('default-avatar.png', size: "35x35", style: "border-radius: 999px;"), '#' %>
+            <% end %>
         </div>
         <div class="ms-3 flex-grow-1">
             <% 

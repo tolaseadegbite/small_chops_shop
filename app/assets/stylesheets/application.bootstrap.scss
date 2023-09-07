@@ -28,6 +28,7 @@ a {
 
 body {
     font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
 }
 
 p {
@@ -45,9 +46,9 @@ h1,h2,h3,h4,h5,h6 {
     justify-content: space-between;
 }
 
-.container {
-    max-width: 93vw;
-}
+    // .container {
+    //     max-width: 93vw;
+    // }
 
 // form
 .mb-3 {

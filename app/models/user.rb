@@ -44,11 +44,11 @@ class User < ApplicationRecord
   has_many :wishlists, dependent: :destroy
   has_many :wishlisted_products, through: :wishlists, source: :product
 
-  has_one_attached :image do |attachable|
+  has_one_attached :avatar do |attachable|
     attachable.variant :display, resize_to_limit: [500, 500]
   end
 
-  validates :image, presence: true,   content_type: { in: %w[image/jpeg image/png],
+  validates :avatar, presence: true,   content_type: { in: %w[image/jpeg image/png],
                                     message: "must be a valid image format" },
                     size:         { less_than: 1.megabytes,
                                     message:   "should be less than 1MB" }

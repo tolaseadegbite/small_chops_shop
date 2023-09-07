@@ -36,11 +36,11 @@
             <%= link_to "About/Hire me", '#', class: "nav-link text-decoration-none text-dark" %>
           </li>
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-0 me-lg-4">
             <%= link_to "Contact", '#', class: "nav-link text-decoration-none text-dark" %>
           </li>
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-0 me-lg-4">
             <%= link_to 'Admin Area', admin_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
         </ul>
@@ -49,13 +49,36 @@
 
         <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">
             <% if user_signed_in? %>
-              <%# if current_user.role == 'Admin' or current_user.role == 'Super Admin' %>
-                <%= link_to current_user.username, '#', class: "nav-link text-decoration-none" %>
-              <%# end %>
-              <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-sm btn-secondary" %>
+              <% if current_user.role == 'Admin' or current_user.role == 'Super Admin' %>
+                <%= link_to cart_path, class: "nav-link" do %>
+                  <div class="position-relative mt-3 me-3">
+                    <i class="fa-solid fa-cart-shopping fs-5"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary border border-light">
+                      <%= @cart.orderables.count %>
+                      <span class="visually-hidden">Cart count</span>
+                    </span>
+                  </div>
+                <% end %>
+              <% end %>
+              <div class=" mt-1">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <% if current_user.avatar.attached? %>
+                    <%= image_tag(current_user.avatar, size: "35x35", style: "border-radius: 999px;") %>
+                  <% else %>
+                    <%= image_tag('default-avatar.png', size: "35x35", style: "border-radius: 999px;") %>
+                  <% end %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end rounded-0">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Wishlists</a></li>
+                  <li><a class="dropdown-item" href="#">Account settings</a></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+              </div>
+              <%#= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-sm btn-secondary" %>
             <% else %>
-              <%= link_to "Signup", new_user_registration_path, class: "btn btn-secondary btn-sm" %>
-              <%= link_to "Login", new_user_session_path, class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Signup", new_user_registration_path %>
+              <%= link_to "Login", new_user_session_path, class: "btn btn-dark rounded-5" %>
             <% end %>
         </div>
       </div>
