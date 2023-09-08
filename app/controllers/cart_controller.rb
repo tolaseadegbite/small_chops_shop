@@ -17,7 +17,8 @@ class CartController < ApplicationController
         end
 
         respond_to do |format|
-            format.html{ redirect_to @product, notice: 'Product has been added to cart' }
+           flash[:notice] = "Product has been added to cart"
+            format.html{ redirect_back(fallback_location: @product) }
             # format.turbo_stream do
             #     render turbo_stream: [turbo_stream.replace('cart',
             #                                                 partial: 'carts/cart',
@@ -31,6 +32,7 @@ class CartController < ApplicationController
     def remove
         Orderable.find_by(id: params[:id]).destroy
         respond_to do |format|
+            flash[:notice] = "Product has been removed from cart"
             format.html { redirect_back(fallback_location: cart_path) }
             # format.turbo_stream do
             #     render turbo_stream: [turbo_stream.replace('cart',

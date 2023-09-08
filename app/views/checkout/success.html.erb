@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Payment successfully made</h1>
+
+    <p><b>Transaction status</b>: <%= @transaction_result['data']['status'] %></p>
+    <p><b>Amount paid</b>: <%= number_to_currency((@transaction_result['data']['amount'])/100, unit: '') %> <%= @transaction_result['data']['currency'] %></p>
+
+    <h2>You purchased</h2>
+
+    <hr>
+
+    <% @cart_items = @transaction_result['data']['metadata']['custom_fields'].each do |field| %>
+        <ol>
+            <% field['value'].each do |code| %>
+                <li><%= code %></li>
+            <% end %>
+        </ol>
+    <% end %>
+    
+    <% if params[:reference].present? %>
+    <div>
+
+        <% transaction_reference = params[:reference] %>
+        <% @result = PaystackTransactions.verify(@paystack, transaction_reference) %>
+
+        <pre><%= JSON.pretty_generate(@result['data']) %></pre>
+
+        <hr>
+
+        <% @result['data']['metadata']['custom_fields'].each do |field| %>
+            <% field['value'].each do |code| %>
+                <% if product = Product.find_by(code: code)  %>
+                    <p><%= product.name %> **** <%#= product.sales_count %> *** <%= product.unit_price %></p>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

@@ -1,6 +1,10 @@
 class WishlistsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_product
+    before_action :set_product, only: [:create, :destroy]
+
+    def index
+        @products = current_user.wishlisted_products.order(created_at: :desc)
+    end
 
     def create
         @wishlist = current_user.wishlists.create(wishlist_params)

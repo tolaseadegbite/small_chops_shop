@@ -10,6 +10,7 @@
 #  feature        :boolean          default(FALSE)
 #  name           :string
 #  reviews_count  :integer          default(0)
+#  sales_count    :integer          default(0)
 #  stock          :integer
 #  unit_price     :integer
 #  created_at     :datetime         not null

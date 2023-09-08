@@ -13,14 +13,17 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  post "checkout/create", to: 'checkout#create'
   
   resources :products do
     resources :reviews
     resources :wishlists, only: [:create, :destroy]
   end
+
+  get '/my_wishlists', to: 'wishlists#index', as: 'my_wishlists'
   
   resources :categories
-  
+
   get '/cart', to: 'cart#show'
 
   post 'cart/add'
@@ -28,4 +31,7 @@ Rails.application.routes.draw do
 
   get '/shop', to: 'products#index', as: 'shop'
   get '/hire_me', to: 'static_pages#about', as: 'about'
+
+  get '/success', to: "checkout#success", as: "checkout_success"
+  get '/failure', to: "checkout#failure", as: "checkout_failure"
 end

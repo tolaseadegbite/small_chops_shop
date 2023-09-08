@@ -70,7 +70,10 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end rounded-0">
                   <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Wishlists</a></li>
+                  <%= link_to my_wishlists_path, class: "dropdown-item" do %>
+                    My wishlists
+                    (<%= current_user.wishlisted_products.count %>)
+                  <% end %>
                   <li><a class="dropdown-item" href="#">Account settings</a></li>
                   <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>

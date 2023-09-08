@@ -1,31 +1,35 @@
-<% @cart.orderables.each do |orderable| %>
-    <% product = orderable.product %>
-
-    <div id="<%= "cart-#{product.id}" %>">
-        <div class="d-flex justify-content-between">
-            <strong>Name:</strong>
-            <%= product.name %>
-            <strong>Price:</strong>
-            <%= number_to_currency(product.unit_price, unit: "₦") %>
+<div class="row">
+    <% @cart.orderables.each do |orderable| %>
+        <% product = orderable.product %>
+        <div class="col-md-6 fw-bold d-flex">
+            <div class="image mb-4">
+                <%= image_tag(product.image, width: '300px', class: "rounded") %>
+            </div>
+            <div class="product-details ms-3">
+                <p><%= product.name %></p>
+                <p><%= number_to_currency(product.unit_price, unit: "₦") %> x <%= orderable.quantity %></p>
+                <p><%= product.code %></p>
+            </div>
             <!--<strong>Sales count:</strong>-->
             <%#= product.sales_count %>
-            <strong>Code:</strong>
-            <%= product.code %>
+        </div>
 
+        <div class="col-md-6 d-flex">
             <%= form_with(url: cart_add_path) do |f| %>
                 <%= f.hidden_field :id, value: product.id %>
-                <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
-                <%= f.submit "Add to cart" %>
+                <div class="mb-3">
+                    <%= f.number_field :quantity, value: orderable.quantity, min: 0, class: "form-control d-inline-block w-50 mb-2 bg-transparent rounded-0" %>
+                    <%= f.submit "Add to cart", class: "btn btn-warning rounded-0 ml-s" %>
+                </div>
             <% end %>
 
             <%= form_with(url: cart_remove_path) do |f| %>
                 <%= f.hidden_field :id, value: orderable.id %>
-                <%= f.submit "Remove product" %>
+                <%= f.button "cancel", class: "btn btn-light border" do %>
+                    <i class="fa-solid fa-xmark"></i>
+                <% end %>
             <% end %>
-            <strong>Total: </strong>
-            <%= orderable.total %>
         </div>
 
-    </div>
-
-<% end %>
+    <% end %>
+</div>

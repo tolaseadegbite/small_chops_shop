@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_render_cart
     before_action :initialize_cart
+    before_action :load_paystack
 
     def set_render_cart
         @render_cart = true
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
             @cart = Cart.create
             session[:cart_id] = @cart.id
         end
+    end
+
+    def load_paystack
+        @paystack = Paystack.new(Rails.application.credentials[:paystack][:PAYSTACK_PUBLIC_KEY], Rails.application.credentials[:paystack][:PAYSTACK_PRIVATE_KEY])
     end
 
     private

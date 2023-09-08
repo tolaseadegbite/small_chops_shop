@@ -1,0 +1,21 @@
+<% if @product.average_rating.present? %>
+
+    <% 
+        average_rating_star_classes = %w["text-dark text-dark text-dark text-dark text-dark"]
+
+        
+        @product.average_rating.round(0).times do |i|
+            average_rating_star_classes[i] = 'text-warning'
+        end
+    %>
+
+    <span>
+        <% average_rating_star_classes.each do |star_class| %>
+            <span class="<%= star_class %> mb-0 pb-0">
+                <i class="fa-solid fa-star"></i>
+            </span>
+
+        <% end %>
+        <span class="text-dark mb-2"> (<%= link_to pluralize(@product.reviews_count, "rating"), '#' %>)</span>
+    </span>
+<% end %>
