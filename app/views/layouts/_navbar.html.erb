@@ -74,7 +74,7 @@
                     My wishlists
                     (<%= current_user.wishlisted_products.count %>)
                   <% end %>
-                  <li><a class="dropdown-item" href="#">Account settings</a></li>
+                  <%= link_to 'Account settings', edit_user_registration_path, class: "dropdown-item" %>
                   <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
               </div>

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'cart#show'
 
+  post '/webhooks/:source', to: 'webhooks#create'
+
   post 'cart/add'
   post 'cart/remove'
 
