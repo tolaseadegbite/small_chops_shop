@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  post '/webhooks/:source', to: 'webhooks#create'
+
   post "checkout/create", to: 'checkout#create'
   
   resources :products do
@@ -25,8 +27,6 @@ Rails.application.routes.draw do
   resources :categories
 
   get '/cart', to: 'cart#show'
-
-  post '/webhooks/:source', to: 'webhooks#create'
 
   post 'cart/add'
   post 'cart/remove'
