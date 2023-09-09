@@ -7,10 +7,11 @@ class WishlistsController < ApplicationController
     end
 
     def create
-        @wishlist = current_user.wishlists.create(wishlist_params)
+        @wishlist = @product.wishlists.create(wishlist_params)
+        @wishlist.user = current_user
         if @wishlist.save
             respond_to do |format|
-                format.html { redirect_to @product, notice: "Added to wishlist." }
+                format.html { redirect_to @wishlist.product, notice: "Added to wishlist." }
                 format.turbo_stream { flash.now[:notice] = 'Added to wishlist.' }
             end
         else
