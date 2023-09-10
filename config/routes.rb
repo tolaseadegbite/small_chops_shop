@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  root to: "products#index", as: :authenticated_root
+
   root 'static_pages#home'
   
   namespace :admin do

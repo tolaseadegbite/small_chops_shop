@@ -2,12 +2,12 @@ class CheckoutController < ApplicationController
     
     def create
         total_amount = @cart.total
-        cart_items = @cart.products.pluck(:code)
+        cart_items = @cart.products.pluck(:name).join(", ")
         reference = "#{@cart.products.pluck(:id).join().to_i}_#{rand.to_s[2..10]}"
         callback_url = checkout_success_url
         cancel_url = checkout_failure_url
 
-        @payment = PaystackTransactions.new(@paystack)
+        @payment = PaystackTransactions.new(PAYSTACKOBJ)
 
         @result = @payment.initializeTransaction(
             :reference => reference,
@@ -41,12 +41,7 @@ class CheckoutController < ApplicationController
 
             @transaction_result = PaystackTransactions.verify(@paystack, transaction_reference)
 
-            @cart_items = @transaction_result['data']['metadata']['custom_fields'].each do |field|
-                field['value'].each do |code|
-                    product = Product.find_by(code: code)
-                    # product.increment!(:sales_count)
-                end
-            end
+            @cart_items = @transaction_result['data']['metadata']['custom_fields']
         else
             redirect_to checkout_failure_url, alert: "No info for you here."
         end

@@ -16,12 +16,14 @@ class ApplicationController < ActionController::Base
             session[:cart_id] = @cart.id
         end
     end
-
+    
     def load_paystack
-        @paystack = Paystack.new(Rails.application.credentials[:paystack][:PAYSTACK_PUBLIC_KEY], Rails.application.credentials[:paystack][:PAYSTACK_PRIVATE_KEY])
+        if Rails.application.credentials[:paystack]
+            @paystack = Paystack.new(Rails.application.credentials[:paystack][:PAYSTACK_PUBLIC_KEY], Rails.application.credentials[:paystack][:PAYSTACK_PRIVATE_KEY])
+        end
     end
 
-    private
+    protected
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :surname, :address_line_1, :address_line_2, :phone_number, :avatar])

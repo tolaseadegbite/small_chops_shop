@@ -8,13 +8,7 @@
 
     <hr>
 
-    <% @cart_items = @transaction_result['data']['metadata']['custom_fields'].each do |field| %>
-        <ol>
-            <% field['value'].each do |code| %>
-                <li><%= code %></li>
-            <% end %>
-        </ol>
-    <% end %>
+    <% @cart_items = @transaction_result['data']['metadata']['custom_fields'] %>
     
     <% if params[:reference].present? %>
     <div>
@@ -26,13 +20,7 @@
 
         <hr>
 
-        <% @result['data']['metadata']['custom_fields'].each do |field| %>
-            <% field['value'].each do |code| %>
-                <% if product = Product.find_by(code: code)  %>
-                    <p><%= product.name %> **** <%#= product.sales_count %> *** <%= product.unit_price %></p>
-                <% end %>
-            <% end %>
-        <% end %>
+        <% @result['data']['metadata']['custom_fields'] %>
     </div>
     <% end %>
 </div>
