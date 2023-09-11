@@ -35,8 +35,12 @@ Rails.application.routes.draw do
   post 'cart/remove'
 
   get '/shop', to: 'products#index', as: 'shop'
-  get '/hire_me', to: 'static_pages#about', as: 'about'
+  get '/about', to: 'static_pages#about', as: 'about'
+  get '/contact', to: 'static_pages#contact', as: 'contact'
+  get '/home', to: 'static_pages#home', as: 'home'
 
   get '/success', to: "checkout#success", as: "checkout_success"
   get '/failure', to: "checkout#failure", as: "checkout_failure"
+
+  
 end

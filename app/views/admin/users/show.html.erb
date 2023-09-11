@@ -30,6 +30,11 @@
                 <td><b>ID</b></td>
                 <td><%= @user.id %></td>
             </tr>
+            </tbody>
+            <tr>
+                <td><b>Paystack Customer ID</b></td>
+                <td><%= @user.paystack_customer_id if @user.paystack_customer_id.present? %></td>
+            </tr>
             <tr>
                 <td><b>First name</b></td>
                 <td><%= @user.first_name %></td>

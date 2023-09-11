@@ -10,15 +10,3 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
-
-one:
-  data: 
-  source: MyString
-  processing_errors: MyText
-  status: 
-
-two:
-  data: 
-  source: MyString
-  processing_errors: MyText
-  status: 

@@ -13,7 +13,7 @@
                         <p>Total Revenue</p>
                         <p>₦</p>
                     </div>
-                    <h5 class="mt-2"><%= number_to_currency(245000, unit: "₦") %></h5>
+                    <h5 class="mt-2"><%= number_to_currency(@total_earnings/100, unit: "₦") %></h5>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                         <p>Sales</p>
                         <p><i class="fa-regular fa-credit-card"></i></p>
                     </div>
-                    <h5 class="mt-2">78</h5>
+                    <h5 class="mt-2"><%= @total_transactions %></h5>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                         <p>Products in stock</p>
                         <p><i class="fa-solid fa-cubes"></i></i></p>
                     </div>
-                    <h5 class="mt-2">54</h5>
+                    <h5 class="mt-2"><%= @products_in_stock %></h5>
                 </div>
             </div>
         </div>

@@ -17,10 +17,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-one:
-  label: MyString
-  user: one
-
-two:
-  label: MyString
-  user: two
+banner1:
+  user: tolase
+  label: "Banner label"

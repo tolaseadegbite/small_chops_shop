@@ -5,7 +5,7 @@ require "minitest/reporters"
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
-  # Run tests in parallel with specified workers
+  # Run tests in8 parallel with specified workers
   parallelize(workers: :number_of_processors)
   # Set up all fixtures in test/fixtures/*.yml.
   fixtures :all

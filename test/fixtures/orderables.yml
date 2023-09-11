@@ -19,13 +19,3 @@
 #  fk_rails_...  (cart_id => carts.id)
 #  fk_rails_...  (product_id => products.id)
 #
-
-one:
-  cart: one
-  product: one
-  quantity: 1
-
-two:
-  cart: two
-  product: two
-  quantity: 1

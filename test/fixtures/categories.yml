@@ -20,12 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-one:
-  user: one
-  banner: one
-  name: MyString
-
-two:
-  user: two
-  banner: two
-  name: MyString
+cat1:
+  name: sides
+  user: tolase
+  banner: banner1

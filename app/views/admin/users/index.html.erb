@@ -24,6 +24,7 @@
                     <th scope="col">First name</th>
                     <th scope="col">Surname</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Paystack customer id</th>
                     <th scope="col">Username</th>
                     <th scope="col">Role</th>
                     <th scope="col">Address</th>
@@ -38,6 +39,7 @@
                         <td class="fw-bold"><%= link_to user.first_name, admin_user_path(user) %></td>
                         <td ><%= user.surname %></td>
                         <td><%= user.email %></td>
+                        <td><%= user.paystack_customer_id if user.paystack_customer_id.present? %></td>
                         <td><%= user.username %></td>
                         <td><%= user.role %></td>
                         <td><%= user.address_line_1 %></td>

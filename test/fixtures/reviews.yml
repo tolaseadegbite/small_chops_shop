@@ -22,17 +22,3 @@
 #  fk_rails_...  (product_id => products.id)
 #  fk_rails_...  (user_id => users.id)
 #
-
-one:
-  title: MyString
-  body: MyText
-  rating: 1
-  user: one
-  product: one
-
-two:
-  title: MyString
-  body: MyText
-  rating: 1
-  user: two
-  product: two

@@ -1,5 +1,5 @@
 {
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NDk4Mjk0LCJqdGkiOiI2NGZjYWEzZGNlNmEwYTAwMjM4YWZhZWMiLCJpYXQiOjE2OTQyODAyNTMsIm5iZiI6MTY5NDI4MDI1MywiZXhwIjoxNjk0MzY2NjUzfQ.lj22KWCxY7Dy0ykVYP9jCtMMlg_oJMBaNf9n5sRUveE",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NDk4Mjk0LCJqdGkiOiI2NGZmMmJjZTQ1MzhhMTAwMjM1N2I2ZjgiLCJpYXQiOjE2OTQ0NDQ0OTQsIm5iZiI6MTY5NDQ0NDQ5NCwiZXhwIjoxNjk0NTMwODk0fQ.nM6FOAOiqpD7VJ9rqnV9GNF87_aA_0C8wspJu3fNBgA",
   "user": {
     "integrations": [
       {
@@ -44,7 +44,7 @@
     "area_code": "0",
     "calling_code": "+234",
     "registration_complete": true,
-    "last_login": "2023-09-09T17:23:41.000Z",
+    "last_login": "2023-09-11T15:01:10.000Z",
     "wt_access": "none",
     "is_developer": true,
     "job_title": "CEO",
@@ -57,7 +57,7 @@
     "current_integration": 1052283,
     "passwordLastResetAt": "2023-08-11T10:22:11.000Z",
     "createdAt": "2020-11-03T07:36:37.000Z",
-    "updatedAt": "2023-09-09T17:23:41.000Z",
+    "updatedAt": "2023-09-11T15:01:10.000Z",
     "dashboard_preferences": {
       "pagination": {
         "use_cursor": true
@@ -237,7 +237,7 @@
     "primary_user": 498294,
     "organization": 1,
     "createdAt": "2023-08-20T12:47:04.000Z",
-    "updatedAt": "2023-09-09T17:12:25.000Z",
+    "updatedAt": "2023-09-11T14:31:17.000Z",
     "transfer_fees": [
       {
         "fee": 5000,
@@ -433,5 +433,5 @@
       "description": "This role grants users the permissions to manage everything on the dashboard"
     }
   },
-  "token_expiry": 1694366653
+  "token_expiry": 1694530894
 }

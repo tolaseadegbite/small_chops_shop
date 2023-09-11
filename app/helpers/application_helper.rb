@@ -14,4 +14,13 @@ module ApplicationHelper
     def render_turbo_stream_flash_messages
         turbo_stream.prepend "flash", partial: "layouts/flash"
     end
+
+    def full_title(page_title="")
+        base_title = "Grills by Lashe"
+        if page_title.blank?
+            base_title
+        else
+            "#{page_title} | #{base_title}"
+        end
+    end
 end

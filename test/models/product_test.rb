@@ -32,7 +32,23 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:tolase)
+    category = categories(:cat1)
+    @product = @user.products.build(name: "Barbeque", description: "Quality stuff", stock: 10, unit_price: 100, category_id: category, average_rating: 3.5, archive: false, feature: true, sales_count: 2, reviews_count: 2, code: "nvbskhvs")
+  end
+
+  test "product is valid" do
+    assert @product.valid?
+  end
+
+  test "name should be present" do
+    @product.name = "  "
+    assert_not @product.valid?
+  end
+
+  test "description should be present" do
+    @product.description = "  "
+    assert_not @product.valid?
+  end
 end

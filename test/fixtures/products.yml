@@ -30,14 +30,22 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-one:
-  name: MyString
-  description: MyText
-  unit_price: 1
-  stock: 1
+product1:
+  user: tolase
+  name: Barbeque
+  description: "Nice product"
+  stock: 11
+  unit_price: 11000
+  category: cat1
+  feature: true
+  archive: true
 
-two:
-  name: MyString
-  description: MyText
-  unit_price: 1
-  stock: 1
+product2:
+  user: olusaga
+  name: Fries
+  description: "Nice product"
+  stock: 11
+  unit_price: 11000
+  category: cat1
+  feature: true
+  archive: true

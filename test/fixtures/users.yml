@@ -29,12 +29,29 @@
 #  index_users_on_username              (username) UNIQUE
 #
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+tolase:
+  email: tolase@example.com
+  username: lashe
+  first_name: Tolase
+  surname: Adegbite
+  phone_number: 08107768469
+  address_line_1: Tolase Crescent
+  role: 1
+
+Kelvin:
+  email: kelvin@example.com
+  username: kelvin
+  first_name: kelvin
+  surname: Adegbite
+  phone_number: 08107768468
+  address_line_1: Kelvin Crescent
+  role: 2
+
+olusaga:
+  email: olusaga@example.com
+  username: olusaga
+  first_name: Olu
+  surname: Saga
+  phone_number: 08007768469
+  address_line_1: Olusaga Crescent
+  role: 0
