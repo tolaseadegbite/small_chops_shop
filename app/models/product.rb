@@ -47,6 +47,8 @@ class Product < ApplicationRecord
     has_many :wishlist_users, through: :wishlists, source: :user
     has_many :orderables, dependent: :destroy
     has_many :carts, through: :orderables, dependent: :destroy
+    has_many :user_products, dependent: :destroy
+    has_many :buyers, through: :user_products, dependent: :destroy, source: :user
 
     scope :ordered, -> { order(created_at: :desc) }
 

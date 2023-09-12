@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   namespace :admin do
-    get '/', to: '/admin/dashboard#index'
-  end
-  
-  namespace :admin do
     resources :products
     resources :users
     resources :banners
     resources :categories
+    resources :user_products, controller: 'orders'
+    get '/', to: '/admin/dashboard#index'
+    get '/orders', to: 'orders#index'
   end
 
   post '/webhooks/:source', to: 'webhooks#create'

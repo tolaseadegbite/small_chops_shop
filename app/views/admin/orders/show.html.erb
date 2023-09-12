@@ -1,0 +1,29 @@
+<div class="container pt-4 pb-5">
+    <h1>#<%= @order.transaction_id %></h1>
+    <hr>
+    
+    <h4 class="mt-4">Order products</h4>
+    <div class="table-wrapper table-responsive">
+        <table class="table border">
+            <thead>
+                <tr class="fw-bold tb-header">
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date purchased</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% UserProduct.where(transaction_id: @order.transaction_id).each do |user_product| %>
+                    <% product = user_product.product %>
+                    <tr>
+                        <td><%= link_to product.name, product %></td>
+                        <td><%= link_to number_to_currency(product.unit_price, unit: "₦"), product %></td>
+                        <td><%= user_product.created_at.strftime("%m/%d/%Y") %></td>
+                        <td class="text-center"><i class="fa-solid fa-ellipsis"></i></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

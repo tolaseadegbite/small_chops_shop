@@ -37,18 +37,24 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false, message: "Username must be unique" }
   validates_presence_of :first_name, :surname, :address_line_1
 
+  def name
+    "#{first_name}  #{surname}"
+  end
+
   has_many :products, dependent: :destroy
   has_many :banners, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :wishlists, dependent: :destroy
   has_many :wishlisted_products, through: :wishlists, source: :product
+  has_many :user_products, dependent: :destroy
+  has_many :purchased_products, through: :user_products, dependent: :destroy, source: :product
 
   has_one_attached :avatar do |attachable|
     attachable.variant :display, resize_to_limit: [500, 500]
   end
 
-  validates :avatar, presence: true,   content_type: { in: %w[image/jpeg image/png],
+  validates :avatar, content_type: { in: %w[image/jpeg image/png],
                                     message: "must be a valid image format" },
                     size:         { less_than: 1.megabytes,
                                     message:   "should be less than 1MB" }

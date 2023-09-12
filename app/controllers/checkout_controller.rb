@@ -2,7 +2,8 @@ class CheckoutController < ApplicationController
     
     def create
         total_amount = @cart.total
-        cart_items = @cart.products.pluck(:name).join(", ")
+        # cart_items = @cart.products.pluck(:name).join(", ")
+        cart_items = @cart.products.pluck(:name)
         reference = "#{@cart.products.pluck(:id).join().to_i}_#{rand.to_s[2..10]}"
         callback_url = checkout_success_url
         cancel_url = checkout_failure_url

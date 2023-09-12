@@ -16,69 +16,103 @@
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead class="table-secondary">
-                <tr>
-                    <th scope="col">Attributes</th>
-                    <th scope="col">Values</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tr>
-                <td><b>ID</b></td>
-                <td><%= @user.id %></td>
-            </tr>
-            </tbody>
-            <tr>
-                <td><b>Paystack Customer ID</b></td>
-                <td><%= @user.paystack_customer_id if @user.paystack_customer_id.present? %></td>
-            </tr>
-            <tr>
-                <td><b>First name</b></td>
-                <td><%= @user.first_name %></td>
-            </tr>
-            <tr>
-                <td><b>Surname</b></td>
-                <td><%= @user.surname %></td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Username</b></td>
-                <td><%= @user.username %></td>
-            </tr>
-            <tr>
-                <td><b>Email Address</b></td>
-                <td><%= @user.email %></td>
-            </tr>
-            <tr>
-                <td><b>Role</b></td>
-                <td><%= @user.role %></td>
-            </tr>
-            <tr>
-                <td><b>Phone number</b></td>
-                <td><%= @user.phone_number %></td>
-            </tr>
-            <tr>
-                <td><b>Address Line 1</b></td>
-                <td><%= @user.address_line_1 %></td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Address Line 2</b></td>
-                <td><%= @user.address_line_2 %></td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Date created</b></td>
-                <td><%= @user.created_at.strftime("%m/%d/%Y") %></td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Last updated</b></td>
-                <td><%= @user.updated_at.strftime("%m/%d/%Y") %></td>
-            </tr>
-        </table>
+    <h1 class="mb-4"><%= @user.name %></h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th scope="col">Attributes</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tr>
+                        <td><b>ID</b></td>
+                        <td><%= @user.id %></td>
+                    </tr>
+                    </tbody>
+                    <tr>
+                        <td><b>Paystack Customer ID</b></td>
+                        <td><%= @user.paystack_customer_id if @user.paystack_customer_id.present? %></td>
+                    </tr>
+                    <tr>
+                        <td><b>First name</b></td>
+                        <td><%= @user.first_name %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Surname</b></td>
+                        <td><%= @user.surname %></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><%= @user.username %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Email Address</b></td>
+                        <td><%= @user.email %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Role</b></td>
+                        <td><%= @user.role %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Phone number</b></td>
+                        <td><%= @user.phone_number %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Address Line 1</b></td>
+                        <td><%= @user.address_line_1 %></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><b>Address Line 2</b></td>
+                        <td><%= @user.address_line_2 %></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><b>Date created</b></td>
+                        <td><%= @user.created_at.strftime("%m/%d/%Y") %></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><b>Last updated</b></td>
+                        <td><%= @user.updated_at.strftime("%m/%d/%Y") %></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Purchased Products</h4>
+            <div class="table-wrapper table-responsive">
+                <table class="table border">
+                    <thead>
+                        <tr class="fw-bold tb-header">
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Date purchased</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @user.user_products.each do |user_product| %>
+                            <% product = user_product.product %>
+                            <tr>
+                                <td><%= link_to product.name, product %></td>
+                                <td><%= link_to number_to_currency(product.unit_price, unit: "₦"), product %></td>
+                                <td><%= user_product.created_at.strftime("%m/%d/%Y") %></td>
+                                <td class="text-center"><i class="fa-solid fa-ellipsis"></i></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 </div>

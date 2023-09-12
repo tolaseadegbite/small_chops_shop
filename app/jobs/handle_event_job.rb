@@ -27,6 +27,16 @@ class HandleEventJob < ApplicationJob
   end
 
   def handle_transaction_successful_event(paystack_event)
-    puts "transaction.successful #{paystack_event['data']['id']}"
+    customer_code = paystack_event['data']['customer']['customer_code']
+    cart_items = paystack_event['data']['metadata']['custom_fields'].each do |field|
+      field['value'].each do |name|
+        product = Product.find_by(name: name)
+        UserProduct.create!(
+          user: User.find_by(paystack_customer_id: customer_code),
+          product: product,
+          transaction_id: paystack_event['data']['id']
+        )
+      end
+    end
   end
 end

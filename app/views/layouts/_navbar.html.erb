@@ -40,25 +40,24 @@
             <%= link_to "Contact", contact_path, class: "nav-link text-decoration-none text-dark" %>
           </li>
           </li>
-          <li class="nav-item me-0 me-lg-4">
-            <%= link_to 'Admin Area', admin_path, class: "nav-link text-decoration-none text-dark" %>
-          </li>
         </ul>
 
         <%# Login/signup %>
 
         <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">
+            <%= link_to cart_path, class: "nav-link" do %>
+              <div class="position-relative mt-3 me-3">
+                <i class="fa-solid fa-cart-shopping fs-5"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary border border-light">
+                  <%= @cart.orderables.count %>
+                  <span class="visually-hidden">Cart count</span>
+                </span>
+              </div>
+            <% end %>
+
             <% if user_signed_in? %>
               <% if current_user.role == 'Admin' or current_user.role == 'Super Admin' %>
-                <%= link_to cart_path, class: "nav-link" do %>
-                  <div class="position-relative mt-3 me-3">
-                    <i class="fa-solid fa-cart-shopping fs-5"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary border border-light">
-                      <%= @cart.orderables.count %>
-                      <span class="visually-hidden">Cart count</span>
-                    </span>
-                  </div>
-                <% end %>
+                <%= link_to 'Admin Area', admin_path, class: "nav-link text-decoration-none text-dark" %>
               <% end %>
               <div class=" mt-1">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,7 +68,7 @@
                   <% end %>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end rounded-0">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <%= link_to 'Orders', orders_path, class: "dropdown-item" %>
                   <%= link_to my_wishlists_path, class: "dropdown-item" do %>
                     My wishlists
                     (<%= current_user.wishlisted_products.count %>)

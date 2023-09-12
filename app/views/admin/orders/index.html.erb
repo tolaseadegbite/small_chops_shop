@@ -1,0 +1,39 @@
+<div class="container my-3">
+    <div class="header pt-2 d-flex justify-content-between">
+        <div class="header-info">
+            <h1>Orders (<%= UserProduct.count %>)</h1>
+            <p>Manage your orders</p>
+        </div>
+        <div class="header-link align-self-center">
+            <%= link_to new_admin_user_path, class: "btn btn-dark rounded-0" do %>
+                <i class="fa-solid fa-plus"></i>
+                Add New
+            <% end %>
+        </div>
+    </div>
+    <hr>
+
+    <div class="mb-3">
+        <input type="text" class="form-control form-control rounded-0 w-25" placeholder="Search user..." aria-label="Search users..." aria-describedby="basic-addon1">
+    </div>
+
+    <div class="table-wrapper table-responsive">
+        <table class="table border">
+            <thead>
+                <tr class="fw-bold tb-header">
+                    <th scope="col">ID</th>
+                    <th scope="col">Date created</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.uniq.each do |order| %>
+                    <% product = order.product %>
+                    <tr>
+                        <td><%= link_to order.transaction_id, admin_user_product_path(order) %></td>
+                        <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
