@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
         @related_products = Product.find(Product.pluck(:id).sample(3))
     end
 
+    def purchased_products
+        @products = current_user.purchased_products
+    end
+
     private
 
         def set_categories

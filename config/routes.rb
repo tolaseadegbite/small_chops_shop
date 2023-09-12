@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :wishlists, only: [:create, :destroy]
   end
+  get '/orders', to: 'products#purchased_products', as: 'orders'
 
   get '/my_wishlists', to: 'wishlists#index', as: 'my_wishlists'
   
