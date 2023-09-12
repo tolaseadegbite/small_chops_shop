@@ -1,5 +1,6 @@
 <div class="container pt-4 pb-5">
     <h1>#<%= @order.transaction_id %></h1>
+    <h4>User: <%= @order.user.name %></h4>
     <hr>
     
     <h4 class="mt-4">Order products</h4>
@@ -16,6 +17,7 @@
             <tbody>
                 <% UserProduct.where(transaction_id: @order.transaction_id).each do |user_product| %>
                     <% product = user_product.product %>
+                    <% user = user_product.user %>
                     <tr>
                         <td><%= link_to product.name, product %></td>
                         <td><%= link_to number_to_currency(product.unit_price, unit: "₦"), product %></td>
