@@ -29,6 +29,9 @@ gem "bootsnap", require: false
 
 # gem "sassc-rails"
 
+group :production do
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

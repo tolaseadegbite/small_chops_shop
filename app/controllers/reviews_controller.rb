@@ -68,7 +68,7 @@ class ReviewsController < ApplicationController
 
         def restrict_other_users
             unless current_user == @review.user
-                redirect_to @product, notice: 'Accedd denied!'
+                redirect_to @product, notice: 'Access denied!'
             end
         end
 end

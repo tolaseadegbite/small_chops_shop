@@ -4,9 +4,11 @@
         <%= turbo_frame_tag "reviews" do %>
             <% render @product.reviews.includes(:user) %>
         <% end %>
-
-        <%= turbo_frame_tag 'review_button' do %>
-            <%= render 'new_review_button' %>
+        
+        <% if user_signed_in? %>
+            <%= turbo_frame_tag 'review_button' do %>
+                <%= render 'new_review_button' %>
+            <% end %>
         <% end %>
 
         <%= turbo_frame_tag Review.new %>

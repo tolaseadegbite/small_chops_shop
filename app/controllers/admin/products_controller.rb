@@ -1,4 +1,4 @@
--class Admin::ProductsController < Admin::BaseController
+class Admin::ProductsController < Admin::BaseController
     before_action :find_product, only: %w[show edit update destroy]
     before_action :authenticate_user!
     before_action :find_categories
