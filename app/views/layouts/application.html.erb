@@ -13,14 +13,14 @@
   </head>
 
   <body>
-      <%= render 'layouts/navbar' %>
-      <div id="flash" class="flash">
-        <%= render "layouts/flash" %>
-      </div>
+    <%= render 'layouts/navbar' %>
+    <div id="flash" class="flash">
+      <%= render "layouts/flash" %>
+    </div>
 
-      <div class="flex-wrapper">
-        <%= yield %>
-        <%= render 'layouts/footer' %>
+    <div class="flex-wrapper">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
