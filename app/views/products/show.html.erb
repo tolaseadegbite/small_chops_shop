@@ -1,12 +1,20 @@
 <div class="container border-top py-5">
+    <%# render a list of all product categories on the show page %>
     <%= render 'category_list' %>
+
     <br>
+    <%# render product breadcrumb partial %>
     <%= render 'breadcrumb' %>
     <br>
 
+    <%# render product information from the title to buy button %>
     <%= render 'product_information' %>
 
-    <%= render 'related_products' %>
+    <%# render related products if any %>
+    <% if @product.category.products.count > 1 %>
+        <%= render 'related_products' %>
+    <% end %>
 
+    <%# render reviews section %>
     <%= render 'product_reviews' %>
 </div>

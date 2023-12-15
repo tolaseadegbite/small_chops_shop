@@ -2,7 +2,7 @@
     <div class="review-wrapper w-sm-100 w-75 mx-auto">
         <h2 class="text-center mb-3">Reviews</h2>
         <%= turbo_frame_tag "reviews" do %>
-            <% render @product.reviews.includes(:user) %>
+            <% render @reviews %>
         <% end %>
 
         <%= turbo_frame_tag 'review_button' do %>

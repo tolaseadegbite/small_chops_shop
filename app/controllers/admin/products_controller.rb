@@ -1,11 +1,11 @@
--class Admin::ProductsController < Admin::BaseController
+class Admin::ProductsController < Admin::BaseController
     before_action :find_product, only: %w[show edit update destroy]
     before_action :authenticate_user!
     before_action :find_categories
     # before_action :find_category, only: :show
 
     def index
-        @products = Product.ordered
+        @products = Product.ordered.includes(:user)
     end
     
     def new

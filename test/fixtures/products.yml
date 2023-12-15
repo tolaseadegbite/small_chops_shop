@@ -29,23 +29,15 @@
 #  fk_rails_...  (category_id => categories.id)
 #  fk_rails_...  (user_id => users.id)
 #
-
 product1:
+  name: A nice product
+  description: "A very nice product"
+  category: cat1
   user: tolase
-  name: Barbeque
-  description: "Nice product"
-  stock: 11
-  unit_price: 11000
-  category: cat1
-  feature: true
   archive: true
-
-product2:
-  user: olusaga
-  name: Fries
-  description: "Nice product"
-  stock: 11
-  unit_price: 11000
-  category: cat1
-  feature: true
-  archive: true
+  feature: false
+  average_rating: 3.0
+  reviews_count: 1
+  sales_count: 1
+  stock: 10
+  unit_price: 10000

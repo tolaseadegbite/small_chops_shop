@@ -1,6 +1,8 @@
 <div class="container">
     <h1>Payment successfully made</h1>
 
+    
+
     <p><b>Transaction status</b>: <%= @transaction_result['data']['status'] %></p>
     <p><b>Amount paid</b>: <%= number_to_currency((@transaction_result['data']['amount'])/100, unit: '') %> <%= @transaction_result['data']['currency'] %></p>
     <p><b>Customer id: <%= customer_id = @transaction_result['data']['customer']['customer_code'] %></b></p>

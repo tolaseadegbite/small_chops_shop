@@ -22,7 +22,18 @@
 require "test_helper"
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:tolase)
+    @banner = banners(:banner1)
+    @category = @user.categories.build(name: 'fries', banner: @banner)
+  end
+
+  test "must be valid" do
+    @category.valid?
+  end
+
+  test "name must be present" do
+    @category.name = nil
+    assert_not @category.valid?
+  end
 end

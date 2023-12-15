@@ -19,7 +19,17 @@
 require "test_helper"
 
 class BannerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:tolase)
+    @banner = @user.banners.build(label: 'Banner 1')
+  end
+
+  test "must be valid" do
+    @banner.valid?
+  end
+
+  test "label must be present" do
+    @banner.label = nil
+    assert_not @banner.valid?
+  end
 end

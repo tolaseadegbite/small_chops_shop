@@ -59,12 +59,14 @@ class User < ApplicationRecord
                     size:         { less_than: 1.megabytes,
                                     message:   "should be less than 1MB" }
 
+  # roles for authorizations
   enum :role, { 
     'Normal': 0,
     'Super Admin': 1,
     'Admin': 2
    }
 
+  #  creates a new paystack customer id after the user object is created and updates it in the database
    after_create do
     return if paystack_customer_id.present?
 
