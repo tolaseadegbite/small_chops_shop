@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::BaseController
     # before_action :find_category, only: :show
 
     def index
-        @products = Product.ordered.includes(:user)
+        @products = Product.order(id: :desc).where(["name LIKE ?","%#{params[:search]}%"]).includes(:user)
     end
     
     def new

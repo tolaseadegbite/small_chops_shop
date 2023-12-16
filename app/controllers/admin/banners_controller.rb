@@ -3,7 +3,7 @@ class Admin::BannersController < Admin::BaseController
     before_action :authenticate_user!
 
     def index
-        @banners = Banner.ordered
+        @banners = Banner.order(id: :desc).where(["label LIKE ?","%#{params[:search]}%"])
     end
     
     def new

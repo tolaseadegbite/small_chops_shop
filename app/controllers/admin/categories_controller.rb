@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
     before_action :find_banners
  
      def index
-         @categories = Category.ordered
+         @categories = Category.order(id: :desc).where(["name LIKE ?","%#{params[:search]}%"])
      end
      
      def new
