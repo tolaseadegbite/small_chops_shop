@@ -7,9 +7,8 @@ class ProductsController < ApplicationController
 
     def show
         @product ||= Product.find(params[:id])
-        @related_products = @product.category.products.where.not(id: @product.id).take(3)
-        # @related_products = Product.find(Product.pluck(:id).sample(3))
-        @reviews = @product.reviews.includes(:user)
+        @products = Product.all.take(3)
+        @related_products = Product.find(Product.pluck(:id).sample(3))
     end
 
     def purchased_products
