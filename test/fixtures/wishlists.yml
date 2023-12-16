@@ -20,3 +20,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
+wishlist1:
+  user: tolase
+  product: product1
