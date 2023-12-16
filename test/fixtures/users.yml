@@ -34,3 +34,9 @@ tolase:
   phone_number: 08100000011
   role: 1
   address_line_1: Address of my house
+
+john:
+  email: john@example.com
+  phone_number: 08100000012
+  role: 1
+  address_line_1: Address of my house

@@ -25,5 +25,33 @@
 require "test_helper"
 
 class ReviewTest < ActiveSupport::TestCase
-  
+  def setup
+    @user = users(:john)
+    @product = products(:product1)
+    @review = @user.reviews.build(title: 'Lekker review', body: 'Best review ever', rating: 5, product: @product)
+  end
+
+  test 'must be valid' do
+    assert @review.valid?
+  end
+
+  test "body must be present" do
+    @review.body = nil
+    assert_not @review.valid?
+  end
+
+  test "title must be present" do
+    @review.title = nil
+    assert_not @review.valid?
+  end
+
+  test "rating must be present" do
+    @review.rating = nil
+    assert_not @review.valid?
+  end
+
+  test "must be greater than zero" do
+    @review.rating = 0
+    assert_not @review.valid?
+  end
 end

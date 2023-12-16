@@ -23,15 +23,16 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Review < ApplicationRecord
+  after_commit :update_average_rating, on: [:create, :update, :destroy]
+
   belongs_to :user, counter_cache: true
   belongs_to :product, counter_cache: true
 
   validates_presence_of :title, :body
-  validates_presence_of :rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5, only_integer: true}
+  validates :rating, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 6 }
   validates :user_id, uniqueness: { scope: [:product_id], message: "You have already reviewed this product." }
-
-  after_commit :update_average_rating, on: [:create, :update, :destroy]
-
+  
+  # after commit callback
   def update_average_rating
     product.update!(average_rating: product.reviews.average(:rating))
   end
