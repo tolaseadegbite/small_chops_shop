@@ -2,7 +2,7 @@
   <div class="container">
     <%= link_to root_path, class: "navbar-brand fw-bold" do %>
       <i class="fa-solid fa-utensils"></i>
-      GRILLS BY LASHE
+      Grills by Lashe
     <% end %>
     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
 
             <% if user_signed_in? %>
               
-              <div class=" mt-1">
+              <div class=" mt-1 dropdown">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <% if current_user.avatar.attached? %>
                     <%= image_tag(current_user.avatar, size: "35x35", style: "border-radius: 999px;") %>
@@ -66,14 +66,14 @@
                   <% end %>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end rounded-0">
-                  <%#= link_to 'Orders', orders_path, class: "dropdown-item" %>
+                  <%= link_to 'My Orders', orders_path, class: "dropdown-item" %>
                   <%= link_to my_wishlists_path, class: "dropdown-item" do %>
                     My wishlists
                     (<%= current_user.wishlisted_products.count %>)
                   <% end %>
                   <%= link_to 'Account settings', edit_user_registration_path, class: "dropdown-item" %>
                   <% if current_user.role == 'Admin' || current_user.role == 'Super Admin' %>
-                    <%= link_to 'Admin Area', admin_path, class: "dropdown-item" %>
+                    <%= link_to 'Admin', admin_path, class: "dropdown-item" %>
                   <% end %>
                   <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
