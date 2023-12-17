@@ -2,10 +2,10 @@ require "test_helper"
 
 class WishlistsControllerTest < ActionDispatch::IntegrationTest
   def setup
+    @base_title = 'Grills by Lashe'
     @user = users(:tolase)
     @product = products(:product1)
     @wishlist = wishlists(:wishlist2)
-    @base_title = 'Grills by Lashe'
   end
 
   test "should redirect index when not logged in" do

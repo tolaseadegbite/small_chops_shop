@@ -2,6 +2,7 @@ require "test_helper"
 
 class WishlistCreationTest < ActionDispatch::IntegrationTest
   def setup
+    @base_title = 'Grills by Lashe'
     @user = users(:tolase)
     @product = products(:product1)
     @wishlist = wishlists(:wishlist1)
@@ -25,12 +26,16 @@ class WishlistCreationTest < ActionDispatch::IntegrationTest
   #   assert_not flash.empty?
   # end
 
-  test "destroy wishlist" do
+  test "destroy wishlist and wishlists index page" do
     get product_path(@product)
     assert_template 'products/show'
+    assert_select 'title', "#{@product.name} | #{@base_title}"
     assert_difference 'Wishlist.count', -1 do
       delete product_wishlist_path(@product, @wishlist)
     end
     assert_not flash.empty?
+    get my_wishlists_path
+    assert_template 'wishlists/index'
+    assert_select "title", "My Wishlists | #{@base_title}"
   end
 end
