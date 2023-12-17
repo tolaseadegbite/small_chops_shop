@@ -23,3 +23,7 @@
 wishlist1:
   user: tolase
   product: product1
+
+wishlist2:
+  user: john
+  product: product2

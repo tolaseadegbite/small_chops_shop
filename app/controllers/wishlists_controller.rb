@@ -1,6 +1,7 @@
 class WishlistsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_product, only: [:create, :destroy]
+    before_action :restrict_other_users, only: %w[destroy]
 
     def index
         @products = current_user.wishlisted_products.order(created_at: :desc)
@@ -36,5 +37,11 @@ class WishlistsController < ApplicationController
 
     def set_product
         @product ||= Product.find(params[:product_id])
+    end
+
+    # redirect unauthorised wishlist deletion
+    def restrict_other_users
+        @wishlist ||= Wishlist.find(params[:id])
+        redirect_to(@product, status: :see_other, notice: 'Access denied') unless current_user == @wishlist.user
     end
 end
