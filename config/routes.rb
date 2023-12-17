@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "products#index", as: :authenticated_root
+  authenticated :user do
+    root to: "products#index", as: :authenticated_root
+  end
 
   root 'static_pages#home'
   
