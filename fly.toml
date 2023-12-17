@@ -1,22 +1,16 @@
-# fly.toml app configuration file generated for grillsbylashe on 2023-09-10T00:13:54+01:00
+# fly.toml app configuration file generated for small-chops-shop on 2023-12-17T19:17:19+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "grillsbylashe-wandering-tree-8971"
+app = "small-chops-shop"
 primary_region = "den"
 console_command = "/rails/bin/rails console"
 
 [build]
 
-[deploy]
-  release_command = "./bin/rails db:prepare"
-
-[processes]
-  app = "./bin/rails server"
-  sidekiq = "bundle exec sidekiq"
-
 [http_service]
+  processes = ["app"]
   internal_port = 3000
   force_https = true
   auto_stop_machines = true
@@ -24,6 +18,18 @@ console_command = "/rails/bin/rails console"
   min_machines_running = 0
   processes = ["app"]
 
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
+
+[processes]
+  app = "./bin/rails server"
+  sidekiq = "bundle exec sidekiq"
+[deploy]
+  release_command = "./bin/rails db:prepare"
+
