@@ -17,7 +17,7 @@
 
     <div class="mb-3">
         <%= form_tag admin_users_path, method: 'get' do %>
-          <%= text_field_tag :search, params[:search], class: "form-control form-control rounded-0 w-25" %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Search users', class: "form-control form-control rounded-0 w-50" %>
           <%#= submit_tag :Search, class: "btn btn-primary btn-sm mt-2" %>
         <% end %>
     </div>
