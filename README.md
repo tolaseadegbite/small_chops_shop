@@ -1,24 +1,25 @@
-# README
+# Ecommerce (food) webapp with simple custom admin
+This project is written in Ruby on Rails 7. The purpose is to keep teaching myself about the framework.
+## Key Features
+Accept payment with Paystack (now owned by stripe)
+Ngrok for webhooks testing
+Version control with Git
+Model, controller and integration tests with Minitest
+File upload to aws
+Hotwire
+Background jobs with sidekiq
+Deploy to Fly
+## Getting started
+Admin credentials:
+email: admin@admin.com
+password: 123456
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Normal user (You can simply create an account or use the below details)
+email: exampleuser@example.com
+password: 123456
 
-Things you may want to cover:
+## Demo
 
-* Ruby version
+https://small-chops-shop.fly.dev
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Image upload returns 500 but you can just reload till it's fixed, thanks.
