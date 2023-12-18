@@ -22,4 +22,4 @@ password: 123456
 
 https://small-chops-shop.fly.dev
 
-Image upload returns 500 but you can just reload till it's fixed, thanks.
+Image upload returns 500 (reddit memory issue) but you can just reload till it's fixed, thanks.
