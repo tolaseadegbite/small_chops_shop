@@ -24,7 +24,7 @@ This project is written in Ruby on Rails 7. The purpose is to keep teaching myse
 
 https://small-chops-shop.fly.dev
  
-This was an interesting build for me, I got my hands dirty as it was my first time implementing Paystack. At first, it was difficult because there weren't tutorials online to about it's combination with Rails, so I was left with two choices, read the docs in and out or give up. I chose to read  the docs and figure out things myself.
+This was an interesting build for me, I got my hands dirty as it was my first time implementing Paystack. At first, it was difficult because there weren't tutorials online about it's combination with Rails, so I was left with two choices, read the docs in and out or give up. I chose to read  the docs and figure out things myself.
 <br>
 The second most impactful is setting up and working with ngrok to test webhooks. I was also able to use my previous knowledge to setup a background job to handle events.
 <br>
