@@ -11,15 +11,7 @@
     <%= render 'admin/banners/image_preview', f: f, banner: banner %>
 
     <div class="actions mb-2">
-        <%= f.button "Log in", class: "btn btn-dark rounded-0" do %>
-            <% if f.object.new_record? %>
-                <span class="show-when-enabled">Create banner</span>
-                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Creating banner...</span>
-            <% else %>
-                <span class="show-when-enabled">Update banner</span>
-                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Updating banner...</span>
-            <% end %>
-        <% end %>
+        <%= f.button "Submit", class: "btn btn-dark rounded-0" %>
 
         <% if f.object.new_record? %>
             <%= link_to "Cancel", admin_banners_path, class: "btn btn-dark rounded-0" %>

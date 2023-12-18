@@ -22,15 +22,7 @@
     </div>
 
     <div class="actions mb-2">
-        <%= f.button class: "btn btn-dark rounded-0" do %>
-            <% if f.object.new_record? %>
-                <span class="show-when-enabled">Create category</span>
-                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Creating category...</span>
-            <% else %>
-                <span class="show-when-enabled">Update category</span>
-                <span class="show-when-disabled"><i class="fa-solid fa-spinner fa-spin text-white"></i> Updating category...</span>
-            <% end %>
-        <% end %>
+        <%= f.button "Submit", class: "btn btn-dark rounded-0" do %>
 
         <% if f.object.new_record? %>
             <%= link_to "Cancel", admin_categories_path, class: "btn btn-dark rounded-0" %>
