@@ -1,4 +1,4 @@
-# Ecommerce (food) webapp with simple custom admin
+# Ecommerce (food) webapp with custom admin
 This project is written in Ruby on Rails 7. The purpose is to keep teaching myself about the framework.
 
 (I AM LOOKING FOR A JUNIOR ROLE GUYS)
