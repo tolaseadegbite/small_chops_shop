@@ -4,7 +4,8 @@ This project is written in Ruby on Rails 7. The purpose is to keep teaching myse
 (I AM LOOKING FOR A JUNIOR ROLE GUYS)
 ## Key Features
 - Accept payment with Paystack (now owned by stripe)
-- Ngrok for webhooks testing
+- Ngrok for webhooks
+- Tests with Minitest
 - Version control with Git
 - Model, controller and integration tests with Minitest
 - File upload to aws
