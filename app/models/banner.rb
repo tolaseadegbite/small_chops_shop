@@ -29,8 +29,8 @@ class Banner < ApplicationRecord
     attachable.variant :display, resize_to_limit: [500, 500]
   end
 
-  # validates :image, presence: true,   content_type: { in: %w[image/jpeg image/png],
-  #                                 message: "must be a valid image format" },
-  #                   size:         { less_than: 1.megabytes,
-  #                                 message:   "should be less than 1MB" }
+  validates :image, presence: true,   content_type: { in: %w[image/jpeg image/png],
+                                  message: "must be a valid image format" },
+                    size:         { less_than: 1.megabytes,
+                                  message:   "should be less than 1MB" }
 end

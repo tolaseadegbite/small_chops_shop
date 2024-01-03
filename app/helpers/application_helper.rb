@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+    # adds active class based on specific conditions
     def nav_link_active?(link_name)
         return "active" if controller_name == link_name
     end
@@ -15,6 +17,7 @@ module ApplicationHelper
         turbo_stream.prepend "flash", partial: "layouts/flash"
     end
 
+    # returns full title if present, else returns base title
     def full_title(page_title="")
         base_title = "Grills by Lashe"
         if page_title.blank?
