@@ -17,7 +17,7 @@ class Admin::BannersController < Admin::BaseController
         @banner = current_user.banners.build(banner_params)
         if @banner.save
             respond_to do |format|
-                format.html { redirect_to admin_banners_url(@banner) }
+                format.html { redirect_to admin_banner_url(@banner), notice: 'Banner successfully created!' }
             end
         else
             render :new, status: :unprocessable_entity
@@ -31,7 +31,7 @@ class Admin::BannersController < Admin::BaseController
     def update
         if @banner.update(banner_params)
             respond_to do |format|
-                format.html { redirect_to admin_banner_url(@banner), notice: "Banner updated." }
+                format.html { redirect_to admin_banner_url(@banner), notice: "Banner updated!" }
             end
         else
             render :edit, status: :unprocessable_entity
@@ -41,7 +41,7 @@ class Admin::BannersController < Admin::BaseController
     def destroy
         if @banner.destroy
             respond_to do |format|
-                format.html { redirect_to admin_banners_url }
+                format.html { redirect_to admin_banners_url, notice: "Banner deleted!" }
             end
         end
     end

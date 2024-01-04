@@ -40,3 +40,9 @@ john:
   phone_number: 08100000012
   role: 1
   address_line_1: Address of my house
+
+jane:
+  email: jane@example.com
+  phone_number: 08000000012
+  role: 0
+  address_line_1: Address of my house
