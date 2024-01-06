@@ -50,7 +50,7 @@ class Product < ApplicationRecord
     has_many :user_products, dependent: :destroy
     has_many :buyers, through: :user_products, dependent: :destroy, source: :user
 
-    scope :ordered, -> { order(created_at: :desc) }
+    scope :ordered, -> { order(id: :desc) }
 
     has_one_attached :image do |attachable|
         attachable.variant :display, resize_to_limit: [500, 500]

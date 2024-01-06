@@ -23,7 +23,7 @@ class Banner < ApplicationRecord
 
   validates_presence_of :label
 
-  scope :ordered, -> { order(created_at: :desc) }
+  scope :ordered, -> { order(id: :desc) }
 
   has_one_attached :image do |attachable|
     attachable.variant :display, resize_to_limit: [500, 500]

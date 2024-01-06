@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
     before_action :restrict_other_users, only: %w[destroy]
 
     def index
-        @products = current_user.wishlisted_products.order(created_at: :desc)
+        @products = current_user.wishlisted_products.order(id: :desc)
     end
 
     def create
