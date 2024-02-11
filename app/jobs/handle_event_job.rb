@@ -17,10 +17,11 @@ class HandleEventJob < ApplicationJob
     end
   end
 
+  # update sales count of product
   def update_product_sales_count(paystack_event)
     cart_items = paystack_event['data']['metadata']['custom_fields'].each do |field|
-      field['value'].each do |name|
-        product = Product.find_by(name: name)
+      field['value'].each do |code|
+        product = Product.find_by(code: code)
         product.increment!(:sales_count)
       end
     end
