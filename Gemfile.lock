@@ -97,6 +97,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bootstrap5-kaminari-views (0.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -128,6 +131,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.12.0)
+    faker (3.2.3)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     formatador (1.1.0)
     globalid (1.1.0)
@@ -162,6 +167,18 @@ GEM
     jmespath (1.6.2)
     jsbundling-rails (1.1.2)
       railties (>= 6.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -334,16 +351,19 @@ DEPENDENCIES
   annotate (~> 3.2)
   aws-sdk-s3 (= 1.114.0)
   bootsnap
+  bootstrap5-kaminari-views
   capybara
   cssbundling-rails
   debug
   devise (~> 4.9)
   dockerfile-rails (>= 1.5)
+  faker
   guard (= 2.18.0)
   guard-minitest (= 2.4.6)
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  kaminari
   minitest (= 5.15.0)
   minitest-reporters (= 1.5.0)
   paystack

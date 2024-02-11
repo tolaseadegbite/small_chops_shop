@@ -52,12 +52,14 @@ class Product < ApplicationRecord
 
     scope :ordered, -> { order(id: :desc) }
 
+    paginates_per 6
+
     has_one_attached :image do |attachable|
         attachable.variant :display, resize_to_limit: [500, 500]
     end
 
     validates :image,   content_type: { in: %w[image/jpeg image/png],
-                                      message: "must be a valid image format" },
+                                      message: "must be a valid image format (jpg/png)" },
                       size:         { less_than: 1.megabytes,
                                       message:   "should be less than 1MB" }
 

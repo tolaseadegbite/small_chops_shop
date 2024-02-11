@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     before_action :set_categories, only: %w[index show]
 
     def index
-        @products = Product.ordered.where(archive: false)
+        @products = Product.ordered.where(archive: false).page(params[:page])
     end
 
     def show

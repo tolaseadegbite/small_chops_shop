@@ -26,7 +26,6 @@
 #  index_users_on_paystack_customer_id  (paystack_customer_id) UNIQUE
 #  index_users_on_phone_number          (phone_number)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_username              (username) UNIQUE
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

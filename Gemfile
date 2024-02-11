@@ -18,6 +18,8 @@ gem "sidekiq", "6.5.6"
 gem "sprockets-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 
 # gem "kredis"
 
@@ -35,6 +37,7 @@ end
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "faker"
 end
 
 group :development do
@@ -60,7 +63,5 @@ end
 
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
-
 gem "sentry-ruby", "~> 5.10"
-
 gem "sentry-rails", "~> 5.10"

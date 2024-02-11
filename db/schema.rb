@@ -136,7 +136,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_165414) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "surname"
-    t.string "username"
     t.string "address_line_1"
     t.string "address_line_2"
     t.string "email", default: "", null: false
@@ -148,11 +147,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_165414) do
     t.string "phone_number", null: false
     t.integer "reviews_count", default: 0
     t.string "paystack_customer_id"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["paystack_customer_id"], name: "index_users_on_paystack_customer_id", unique: true
     t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "wishlists", force: :cascade do |t|

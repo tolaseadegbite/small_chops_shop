@@ -1,11 +1,17 @@
 <% provide(:title, "All Products") %>
 
-<div class="container border-top py-5">
+<div class="container border-top pt-5 pb-3">
   <%# render a list of product categories %>
   <%= render 'category_list' %>
   <br>
   <div class="row">
     <%= render @products %>
+  </div>
+  <div class="mt-3 text-end">
+    
+    <%= paginate @products, window: 2, theme: 'bootstrap-5',
+                    pagination_class: "pagination-sm flex-wrap justify-content-center",
+                    nav_class: "d-inline-block" %>
   </div>
 </div>
 

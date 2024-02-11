@@ -44,7 +44,13 @@
             </tr>
             <tr>
                 <td><b>Image</b></td>
-                <td><%= image_tag(@product.image, class: "w-25") %></td>
+                <td>
+                    <% if @product.image.attached? %>
+                        <%= image_tag(@product.image, class: "w-25") %>
+                    <% else %>
+                        <%= image_tag 'food-3.jpg', class: "w-25" %>
+                    <% end %>
+                </td>
             </tr>
             <tr>
                 <td><b>Unit Price</b></td>

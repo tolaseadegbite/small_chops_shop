@@ -28,6 +28,7 @@
                 <tr class="fw-bold tb-header">
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Archived</th>
                     <th scope="col">Featured</th>
                     <th scope="col">Category</th>
@@ -43,9 +44,16 @@
                     <tr>
                         <td class="fw-bold"><%= link_to product.name, admin_product_path(product) %></td>
                         <td ><%= simple_format(product.description.truncate(50)) %></td>
+                        <td>
+                            <% if product.image.attached? %>
+                                <%= image_tag product.image, size: "100x80" %>
+                            <% else %>
+                                <%= image_tag 'food-3.jpg', size: "100x80" %>
+                            <% end %>
+                        </td>
                         <td><%= product.archive %></td>
                         <td><%= product.feature %></td>
-                        <td><%= link_to product.category.name, admin_category_path(product) %></td>
+                        <td><%= link_to product.category.name, admin_category_path(product.category) %></td>
                         <td><%= number_to_currency(product.unit_price, unit: "₦") %></td>
                         <td><%= product.code %></td>
                         <td><%= product.stock %></td>
@@ -55,5 +63,11 @@
                 <% end %>
             </tbody>
         </table>
+        <div class="mt-3 text-end">
+    
+            <%= paginate @products, window: 2, theme: 'bootstrap-5',
+                            pagination_class: "pagination-sm flex-wrap justify-content-center",
+                            nav_class: "d-inline-block" %>
+        </div>
     </div>
 </div>

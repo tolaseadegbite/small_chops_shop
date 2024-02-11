@@ -4,7 +4,11 @@
     <div class="modal-content rounded-0">
       <div class="row text-dark">
         <div class="col-md-6">
-          <%= image_tag(product.image, class: "img-fluid h-100") if product.image.attached? %>
+          <% if product.image.attached? %>
+            <%= image_tag(product.image, class: "img-fluid h-100") if product.image.attached? %>
+          <% else %>
+            <%= image_tag 'food-3.jpg', class: 'img-fluid h-100' %>
+          <% end %>
         </div>
 
         <div class="col-md-6">
