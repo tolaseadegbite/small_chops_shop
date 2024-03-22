@@ -15,15 +15,15 @@
 // reset
 
 a {
-color: #000000;
-text-decoration: none;
-transition: color 200ms;
+    color: #000000;
+    text-decoration: none;
+    transition: color 200ms;
 
-&:hover,
-&:focus,
-&:active {
-    color: #606060;
-}
+    &:hover,
+    &:focus,
+    &:active {
+        color: #606060;
+    }
 }
 
 body {
@@ -37,6 +37,7 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Rowdies', cursive;
+    // font-size: 35px !important;
 }
 
 .flex-wrapper {

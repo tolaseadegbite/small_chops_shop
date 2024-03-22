@@ -20,6 +20,8 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+gem "dartsass-sprockets", "3.0.0"
+# gem "sassc-rails"
 
 # gem "kredis"
 
@@ -29,7 +31,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "bootsnap", require: false
 
-# gem "sassc-rails"
 
 group :production do
   gem "aws-sdk-s3", "1.114.0", require: false
