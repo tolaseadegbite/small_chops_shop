@@ -38,7 +38,7 @@ The application has the following features:
 - Checkout
 - Payment gateway with Paystack (a subsidiary of Stripe)
 - Webhook testing with Ngrok
-- 95% test coverage
+- Controller and Integration tests
 
 ### Dependencies
 
@@ -56,16 +56,16 @@ The application has the following features:
 ### Making Pull Requests
 
 - Fork this repo to your own GitHub account
-- Clone your forked repo to your local machine git clone <ssh or https url>
-- Set the upstream remote so you can stay synced with this repo git remote add upstream <ssh or https url>
-- Create a branch on your forked repo git checkout -b <branch name>
+- Clone your forked repo to your local machine `git clone <ssh or https url>`
+- Set the upstream remote so you can stay synced with this repo `git remote add upstream <ssh or https url>`
+- Create a branch on your forked repo `git checkout -b <branch name>`
 - Add commits of discreet units of code along with descriptive commit messages
-- Sync your forked repo and branch with this repo periodically following this flow
-- Push your branch to your forked repo git push origin <branch name>
+- Sync your forked repo and branch with this repo periodically
+- Push your branch to your forked repo `git push origin <branch name>`
 - Go to your forked repo on GitHub and make a pull request
 - Ensure the description of the PR explains what your code does. If it is a UI change, include a screenshot
 - Only commit relevant code/files
-- Make sure the full test suite passes by running rails test:all
+- Make sure the full test suite passes by running `rails test:all`
 
 When you make a pull request, the GitHub Actions pipeline will run the test suite against your changes and will notify you of pass or fail. You can check the logs for errors, if any. Once the pipeline passes, your pull request will be reviewed and there may be feedback or questions related to your code, so please be prepared to follow up on those. Pull requests are usually reviewed daily. add bullets to the beginning of this set of instructions for an open source github repo for making contributions, and make sure the bullets achieve the
 
@@ -73,23 +73,23 @@ When you make a pull request, the GitHub Actions pipeline will run the test suit
 
 Setting up locally:
 
-- rails -v to ensure you have Rails 7.0.7.2 installed
-- Run rbenv versions or rvm list rubies and confirm that Ruby 3.1.2 is installed
-- psql --version to ensure you have PostgreSQL 12.11 installed (make sure you have a user and password)
+- `rails -v` to ensure you have Rails 7.0.7.2 installed
+- Run `rbenv versions` or `rvm list rubies` and confirm that Ruby 3.1.2 is installed
+- `psql --version` to ensure you have PostgreSQL 12.11 installed (make sure you have a user and password)
 - Fork the repository and copy SSH key
-- git clone <'SSH Key'> to download application locally
-- bundle install to install gems
+- `git clone <'SSH Key'>` to download application locally
+- `bundle install` to install gems
 - Setup your PostgreSQL database username and database password
-- rails db:setup to create the database, load the schema, and load seed data
-- bin/dev to run the local server
-- bundle exec guard to run tests
+- `rails db:setup` to create the database, load the schema, and load seed data
+- `bin/dev` to run the local server
+- `bundle exec guard` to run tests
 - http://127.0.0.1:3000/ in your favourite browser to access the website
 
 ### Making a user an admin
 
-- u = User.find(id)
-- u.role = 'Admin'
-- u.save
+- `u = User.find(id)`
+- `u.role = 'Admin'`
+- `u.save`
 
 ### Todos
 
