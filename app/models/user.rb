@@ -33,13 +33,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #  validates the presence, uniqueness and case sensitivity of username
   validates :username, presence: true, uniqueness: { case_sensitive: false, message: "Username must be unique" }
+
+  # validates presence of first name, surname and address line attributes
   validates_presence_of :first_name, :surname, :address_line_1
 
   def name
     "#{first_name}  #{surname}"
   end
 
+  # associations
   has_many :products, dependent: :destroy
   has_many :banners, dependent: :destroy
   has_many :categories, dependent: :destroy
@@ -49,6 +53,7 @@ class User < ApplicationRecord
   has_many :user_products, dependent: :destroy
   has_many :purchased_products, through: :user_products, dependent: :destroy, source: :product
 
+  # active storage image and validations
   has_one_attached :avatar do |attachable|
     attachable.variant :display, resize_to_limit: [500, 500]
   end

@@ -30,15 +30,22 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
-    
+    # validates presence of user
     validates :user_id, :category_id, presence: true
 
+    # validates presence and uniqueness of name
     validates :name, presence: true, uniqueness: { case_sensitive: false, message: "Product name must be unique" }
+
+    # validates numericality of stock which must be integer
     validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+    # validates numericality of unit_price which must be integer
     validates :unit_price, presence: true, numericality: { greater_than: 0 }
 
+    # create product code before saving to database
     before_create :product_code
     
+    # associations
     belongs_to :user
     belongs_to :category
 
@@ -50,10 +57,13 @@ class Product < ApplicationRecord
     has_many :user_products, dependent: :destroy
     has_many :buyers, through: :user_products, dependent: :destroy, source: :user
 
+    # order products by id
     scope :ordered, -> { order(id: :desc) }
 
+    # display six products per page
     paginates_per 6
 
+    # active storage image and validations
     has_one_attached :image do |attachable|
         attachable.variant :display, resize_to_limit: [500, 500]
     end
