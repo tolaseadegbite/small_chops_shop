@@ -37,7 +37,6 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Rowdies', cursive;
-    // font-size: 35px !important;
 }
 
 .flex-wrapper {
@@ -180,6 +179,9 @@ button {
 }
 
 @include media-breakpoint-down(lg) {
+    .hero-header {
+        font-size: 7.1vw !important;
+    }
     .reviews-section {
         height: auto !important;
         background-image: none;
@@ -192,6 +194,6 @@ button {
     }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-up(md) {
     
 }
