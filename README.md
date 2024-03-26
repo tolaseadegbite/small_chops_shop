@@ -1,5 +1,7 @@
 # Ecommerce Food Application
 
+See project: https://small-chops-shop.fly.dev/
+
 I am a self-taught web developer and this project was built to showcase some of my Ruby on Rails skills. I love solving problems with code and I chose an ecommerce application because because of its importance in business.
 
 ## The Problem
@@ -95,3 +97,4 @@ Setting up locally:
 
 - Advanced admin panel or roll in an admin gem
 - Product search for customers
+- Create customer paystack id from webhooks (more efficient)
