@@ -2,11 +2,11 @@
 
 See project: https://small-chops-shop.fly.dev/
 
-I am a self-taught web developer and this project was built to showcase some of my Ruby on Rails skills. I love solving problems with code and I chose an ecommerce application because because of its importance in business.
+An MVP version for a food ordering website
 
 ## The Problem
 
-The food business sells different types of food, with each food items categorized in a menu. Customers can purchase either by walking into the physical store or by ordering on whatsapp, instagram or facebook. However, these has been working but not efficient because: 
+1. The food business sells different types of food, with each food items categorized in a menu. Customers can purchase either by walking into the physical store or by ordering on whatsapp, instagram or facebook. However, these has been working but not efficient because: 
 
 - Potential customers doubts the legitimacy of business
 - Selection of food items through different categories is stressful
@@ -16,13 +16,15 @@ The food business sells different types of food, with each food items categorize
 - Can't customise your shop
 - Less features
 
+2. The adoption of a different payment processor than Stripe is another issue that needs to be resolved in this project. The reason being the restriction of Stripe in some African countries including Nigeria.
+
 ## The Solution
 
-I made some known online businesses as case study, learnt how to provide efficient solutions to the listed problems and derive from it logic for the application.
+Worked with the client to understand the website needs and used the input to provide efficient solutions to the listed problems and derive from it logic for the application.
 
 The solution needed to be simple, easy to maintain and operate, and deliver a more seamless flow and experience for both admin and consumers. It needed to use cutting-edge technology while keeping monthly costs to a minimum.
 
-I opted on Ruby on Rails as a suitable technology since it allows for rapid development and its REST framework has all of the necessary capabilities. I chose a PostgreSQL database because it is reliable and works well with Ruby on Rails and Fly.io, which host the production application. Finally, I chose to use Hotwire as frontend framework and Amazon S3 for image hosting.
+I opted on Ruby on Rails as a suitable technology since it allows for rapid development and its REST framework has all of the necessary capabilities. I chose a PostgreSQL database because it is reliable and works well with Ruby on Rails and Fly.io, which host the production application. Finally, I chose to use Hotwire as frontend framework, Paystack payment processor and Amazon S3 for image hosting.
 
 ### Features
 
