@@ -3,7 +3,11 @@
         <% product = orderable.product %>
         <div class="col-md-6 fw-bold d-flex">
             <div class="image mb-4">
-                <%= image_tag(product.image, width: '300px', class: "rounded") %>
+                <% if product.image.attached? %>
+                    <%= image_tag(product.image, class: "rounded", width: "100%", height: "250px") %>
+                <% else %>
+                    <%= image_tag 'food-3.jpg', class: "rounded", width: "100%", height: "250px" %>
+                <% end %>
             </div>
             <div class="product-details ms-3">
                 <p><%= product.name %></p>
