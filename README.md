@@ -2,47 +2,47 @@
 
 See project: https://small-chops-shop.fly.dev/
 
-An MVP version for a food ordering website
-
 ## The Problem
 
-1. The food business sells different types of food, with each food items categorized in a menu. Customers can purchase either by walking into the physical store or by ordering on whatsapp, instagram or facebook. However, these has been working but not efficient because: 
+1. My client's finger food business operating in Nigeria faced inefficiencies in their sales process, which relied on physical store visits, WhatsApp, Instagram, and Facebook orders. Key pain points included: 
 
-- Potential customers doubts the legitimacy of business
-- Selection of food items through different categories is stressful
-- No records of purchased products
-- Distractions by products from other business competitors / Advertisements
-- Ordering on social media is time consuming compared to web or mobile applications
-- Can't customise your shop
-- Less features
+- Legitimacy concerns among potential customers
+- Cumbersome food item selection through various categories
+- Distractions from competitors' products and advertisements
+- Inefficient social media ordering process
+- Limited customization options
 
-2. The adoption of a different payment processor than Stripe is another issue that needs to be resolved in this project. The reason being the restriction of Stripe in some African countries including Nigeria.
+2. Payment gateway for online purchase
 
 ## The Solution
 
-Worked with the client to understand the website needs and used the input to provide efficient solutions to the listed problems and derive from it logic for the application.
+Collaborating closely with the client, I identified key requirements and developed effective solutions to address the aforementioned challenges. The goal was to create a simple, easy-to-maintain, and cost-effective solution that would enhance the user experience for both administrators and customers.
 
-The solution needed to be simple, easy to maintain and operate, and deliver a more seamless flow and experience for both admin and consumers. It needed to use cutting-edge technology while keeping monthly costs to a minimum.
+## Technical Solution
 
-I opted on Ruby on Rails as a suitable technology since it allows for rapid development and its REST framework has all of the necessary capabilities. I chose a PostgreSQL database because it is reliable and works well with Ruby on Rails and Fly.io, which host the production application. Finally, I chose to use Hotwire as frontend framework, Paystack payment processor and Amazon S3 for image hosting.
+To achieve this, I selected:
+- Ruby on Rails as the suitable technology for rapid development and its robust REST framework capabilities
+- PostgreSQL as the reliable database management system, compatible with Ruby on Rails and Fly.io, the production application host
+- Hotwire as the frontend framework for efficient and seamless user interaction
+- Designed and implemented a seamless integration with Paystack, a leading alternative payment processor, to circumvent Stripe's geographical restrictions and expand payment capabilities in African markets, ensuring uninterrupted service delivery and enhanced customer experience
+- Amazon S3 for secure and scalable image hosting
 
 ### Features
 
 The application has the following features:
-- Authentication
-- Admin can perform CRUD applications for products, categories, banners
-- Customers can create and delete reviews
-- Customers can add products to wishlists
-- Filter food items by category
-- ActiveStorage for image uploads
-- Amazon S3 for image hosting
+- Authentication and Authorization: Secure user authentication and authorization mechanisms to ensure only authorized access to administrative functions
+- Admin Panel: A custom-built admin panel enabling administrators to perform CRUD (Create, Read, Update, Delete) operations on products, categories, and banners
+- Customer Reviews: Customers can create and delete reviews, fostering a community-driven platform
+- Wishlists: Customers can add products to wishlists, enhancing their shopping experience
+- Product Filtering: Intuitive filtering functionality allowing customers to browse food items by category
+- Image Management: Image uploads using ActiveStorage and Amazon S3 for secure and scalable image hosting
+- User Permissions: Customers can only delete their own reviews and view their wishlists, ensuring data integrity and privacy
 - Custom admin panel for authorised users
 - User authorization. Customers can only delete their reviews, see all their wishlists
-- Bootstrap 5 framework for styling
-- Checkout
-- Payment gateway with Paystack (a subsidiary of Stripe)
-- Webhook testing with Ngrok
-- Controller and Integration tests
+- CSS Framework: Bootstrap 5 ensures a responsive and visually appealing user interface
+- Frontend Framework: Hotwire and Stimulus for dynamic and interactive user interface, providing a seamless user experience
+- Checkout and Payment: Seamless checkout process integrated with Paystack for secure payment processing
+- Testing Framework: Comprehensive testing suite, including controller and integration tests, guarantees application stability and performance
 
 ### Dependencies
 
@@ -71,8 +71,6 @@ The application has the following features:
 - Only commit relevant code/files
 - Make sure the full test suite passes by running `rails test:all`
 
-When you make a pull request, the GitHub Actions pipeline will run the test suite against your changes and will notify you of pass or fail. You can check the logs for errors, if any. Once the pipeline passes, your pull request will be reviewed and there may be feedback or questions related to your code, so please be prepared to follow up on those. Pull requests are usually reviewed daily. add bullets to the beginning of this set of instructions for an open source github repo for making contributions, and make sure the bullets achieve the
-
 ### Local Setup
 
 Setting up locally:
@@ -99,4 +97,4 @@ Setting up locally:
 
 - Advanced admin panel or roll in an admin gem
 - Product search for customers
-- Create customer paystack id from webhooks (more efficient)
+- Create customer paystack id from webhooks (for efficiency)
