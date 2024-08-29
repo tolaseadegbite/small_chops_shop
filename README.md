@@ -1,4 +1,5 @@
-# Ecommerce Food Application
+# Small Chops Shop
+A food ordering webapp
 
 See project: https://small-chops-shop.fly.dev/
 
