@@ -25,7 +25,7 @@ To achieve this, I selected:
 - Ruby on Rails as the suitable technology for rapid development and its robust REST framework capabilities
 - PostgreSQL as the reliable database management system, compatible with Ruby on Rails and Fly.io, the production application host
 - Hotwire as the frontend framework for efficient and seamless user interaction
-- Designed and implemented a seamless integration with Paystack, a leading alternative payment processor, to circumvent Stripe's geographical restrictions and expand payment capabilities in African markets, ensuring uninterrupted service delivery and enhanced customer experience
+- Designed and implemented a seamless integration with Paystack, a leading payment processor, ensuring uninterrupted service delivery and enhanced customer experience
 - Amazon S3 for secure and scalable image hosting
 
 ### Features
